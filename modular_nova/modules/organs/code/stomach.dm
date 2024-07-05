@@ -41,3 +41,12 @@
 			var/mob/living/carbon/human/human_target = stomach_owner
 			human_target.electrocution_animation(1 SECONDS)
 	return COMPONENT_LIVING_BLOCK_SHOCK
+
+//lithovore stomach - modified golem - this whole section calls to the vars set under stomach/golem, they work in game
+/obj/item/organ/internal/stomach/lithovore
+	name = "litho-adapted stomach"
+	icon_state = "stomach-p"
+	desc = "An unfamiliar digestive organ that excels in material deconstruction."
+	color = COLOR_GOLEM_GRAY
+	organ_flags = ORGAN_MINERAL
+	organ_traits = list(TRAIT_ROCK_EATER)
