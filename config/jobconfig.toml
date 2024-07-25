@@ -360,3 +360,21 @@
 "# Required Character Age" = 0
 "Spawn Positions" = 1
 "Total Positions" = 1
+
+## Mint edit start
+
+[CENTCOM_ADMIRAL]
+"Playtime Requirements" = 2400
+"Required Account Age" = 14
+"# Required Character Age" = 0
+"Spawn Positions" = 1
+"Total Positions" = 1
+
+[CENTCOM_OFFICER]
+"Playtime Requirements" = 2400
+"Required Account Age" = 14
+"# Required Character Age" = 0
+"Spawn Positions" = 4
+"Total Positions" = 4
+
+## Mint edit end

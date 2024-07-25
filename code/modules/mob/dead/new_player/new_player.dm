@@ -172,6 +172,10 @@
 	if(job.has_banned_species(client.prefs))
 		return JOB_UNAVAILABLE_SPECIES
 	//NOVA EDIT END
+	//Mint edit start
+	if(job.title == JOB_CCNT_ADMIRAL && client.key != "Centcom")
+		return GENERIC_JOB_UNAVAILABLE_ERROR
+	//Mint edit end
 	return JOB_AVAILABLE
 
 

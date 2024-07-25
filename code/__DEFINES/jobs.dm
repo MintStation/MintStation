@@ -124,6 +124,10 @@
 #define JOB_CENTCOM_RESEARCH_OFFICER "Research Officer"
 #define JOB_CENTCOM_SPECIAL_OFFICER "Special Ops Officer"
 #define JOB_CENTCOM_PRIVATE_SECURITY "Private Security Force"
+// Mint edit start
+#define JOB_CCNT_ADMIRAL "CentCom Admiral"
+#define JOB_CCNT_OFFICER "CentCom Officer"
+// Mint edit end
 // NOVA EDIT ADDITION START
 #define JOB_BLUESHIELD "Blueshield"
 #define JOB_NT_REP "Nanotrasen Consultant"

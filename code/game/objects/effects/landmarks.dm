@@ -76,6 +76,28 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 /obj/effect/landmark/start/prisoner/after_round_start()
 	return
 
+/obj/effect/landmark/start/centcom_admiral
+	name = "CentCom Admiral"
+	icon_state = "admiral"
+	icon = 'modular_mint/centcom/icons/landmarks.dmi'
+
+	jobspawn_override = TRUE
+	delete_after_roundstart = FALSE
+
+/obj/effect/landmark/start/centcom_admiral/after_round_start()
+	return
+
+/obj/effect/landmark/start/centcom_officer
+	name = "CentCom Officer"
+	icon_state = "officer"
+	icon = 'modular_mint/centcom/icons/landmarks.dmi'
+
+	jobspawn_override = TRUE
+	delete_after_roundstart = FALSE
+
+/obj/effect/landmark/start/centcom_officer/after_round_start()
+	return
+
 /obj/effect/landmark/start/janitor
 	name = "Janitor"
 	icon_state = "Janitor"

@@ -17,6 +17,10 @@ Quartermaster=1,1
 
 # Central Command
 
+#Mint edit start
+CentCom Admiral=1,1
+CentCom Officer=4,4
+#Mint edit end
 Nanotrasen Consultant=1,1
 Blueshield=1,1
 

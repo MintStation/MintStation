@@ -67,6 +67,8 @@ const BASEICONS = {
   'Customs Agent': 'shield-heart',
   'Engineering Guard': 'shield-heart',
   'Nanotrasen Consultant': 'clipboard-check',
+  'CentCom Officer': 'user-shield',
+  'CentCom Admiral': 'crown',
   Orderly: 'shield-heart',
   'Science Guard': 'shield-heart',
   'Security Medic': 'heart-pulse',

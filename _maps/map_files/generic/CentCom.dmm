@@ -2516,6 +2516,13 @@
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/supplypod)
+"lC" = (
+/obj/machinery/status_display/evac/directional/north,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/effect/landmark/start/centcom_officer,
+/obj/effect/landmark/start/centcom_officer,
+/turf/open/floor/iron,
+/area/centcom/central_command_areas/control)
 "lJ" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Shuttle Control Office"
@@ -2679,6 +2686,10 @@
 /obj/structure/table/wood,
 /turf/open/floor/iron/grimy,
 /area/centcom/central_command_areas/courtroom)
+"mr" = (
+/obj/effect/landmark/start/centcom_admiral,
+/turf/open/floor/iron/grimy,
+/area/centcom/central_command_areas/control)
 "ms" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /obj/machinery/light/floor,
@@ -4691,6 +4702,7 @@
 "vt" = (
 /obj/machinery/status_display/evac/directional/north,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/effect/landmark/start/centcom_officer,
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/control)
 "vu" = (
@@ -7549,6 +7561,11 @@
 /obj/effect/mapping_helpers/airlock/access/all/admin/captain,
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/admin)
+"Kn" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/effect/landmark/start/centcom_officer,
+/turf/open/floor/iron,
+/area/centcom/central_command_areas/control)
 "Ko" = (
 /obj/structure/table,
 /obj/structure/bedsheetbin,
@@ -53765,7 +53782,7 @@ kl
 xV
 hc
 iu
-Ab
+Kn
 An
 in
 io
@@ -54275,7 +54292,7 @@ Ab
 iu
 ea
 oX
-km
+mr
 km
 xD
 iu
@@ -54536,7 +54553,7 @@ km
 nN
 SJ
 io
-vt
+lC
 xo
 mk
 BE
@@ -54793,7 +54810,7 @@ kl
 xW
 Oh
 iu
-Ab
+Kn
 Ao
 in
 io
