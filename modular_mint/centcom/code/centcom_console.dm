@@ -190,7 +190,7 @@
 					return
 
 			var/new_sec_level = SSsecurity_level.text_level_to_number(params["newSecurityLevel"])
-			if (new_sec_level < SEC_LEVEL_GREEN || new_sec_level > SEC_LEVEL_AMBER) //NOVA EDIT CHANGE - ALERTS
+			if (new_sec_level < SEC_LEVEL_GREEN || new_sec_level > SEC_LEVEL_DELTA) //NOVA EDIT CHANGE - ALERTS
 				return
 			if (SSsecurity_level.get_current_level_as_number() == new_sec_level)
 				return
@@ -958,6 +958,12 @@
 					"Attention crew, it appears that someone on your station has hijacked your telecommunications and broadcasted an unknown signal.",
 					"[command_name()] High-Priority Update",
 				)
+
+/obj/machinery/computer/centcom_announcement/centcom
+	name = "CentCom announcement console"
+	desc = "A console used for making priority Nanotrasen Command Reports."
+	req_access = list(ACCESS_CENT_GENERAL)
+	command_name = "Nanotrasen Central Command Update"
 
 #undef HACK_PIRATE
 #undef HACK_FUGITIVES

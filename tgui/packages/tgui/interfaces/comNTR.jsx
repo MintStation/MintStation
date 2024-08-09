@@ -378,12 +378,6 @@ const PageMain = (props) => {
                 showAlertLevelConfirm={showAlertLevelConfirm}
                 setShowAlertLevelConfirm={setShowAlertLevelConfirm}
               />
-
-              <AlertButton
-                alertLevel="gamma"
-                showAlertLevelConfirm={showAlertLevelConfirm}
-                setShowAlertLevelConfirm={setShowAlertLevelConfirm}
-              />
             </Flex.Item>
           </Flex>
         </Section>
@@ -391,13 +385,6 @@ const PageMain = (props) => {
 
       <Section title="Functions">
         <Flex direction="column">
-          {!!canMakeAnnouncement && (
-            <Button
-              icon="bullhorn"
-              content="Make Priority Announcement"
-              onClick={() => act('makePriorityAnnouncement')}
-            />
-          )}
           {!!canToggleEmergencyAccess && (
             <Button.Confirm
               icon="id-card-o"
@@ -449,24 +436,6 @@ const PageMain = (props) => {
             />
           )}
 
-          {!!canMessageAssociates && (
-            <Button
-              icon="comment-o"
-              content={`Send message to ${emagged ? '[UNKNOWN]' : 'CentCom'}`}
-              disabled={!importantActionReady}
-              onClick={() => setMessagingAssociates(true)}
-            />
-          )}
-
-          {!!canRequestNuke && (
-            <Button
-              icon="radiation"
-              content="Request Nuclear Authentication Codes"
-              disabled={!importantActionReady}
-              onClick={() => setRequestingNukeCodes(true)}
-            />
-          )}
-
           {!!emagged && !syndicate && (
             <Button
               icon="undo"
@@ -480,21 +449,42 @@ const PageMain = (props) => {
           {!!canMakeAnnouncement && (
             <Button
               icon="bullhorn"
-              content="Call Sol Federation 911: Marshals Response"
+              content="Call Emergency Response Team: Code Green"
               onClick={() => act('callThePolice')}
             />
           )}
           {!!canMakeAnnouncement && (
             <Button
               icon="bullhorn"
-              content="Call Sol Federation 811: Advanced Atmospherics Response"
+              content="Call Emergency Response Team: Code Blue"
               onClick={() => act('callTheCatmos')}
             />
           )}
           {!!canMakeAnnouncement && (
             <Button
               icon="bullhorn"
-              content="Call Sol Federation 911: Medical Response"
+              content="Call Emergency Response Team: Code Orange"
+              onClick={() => act('callTheParameds')}
+            />
+          )}
+          {!!canMakeAnnouncement && (
+            <Button
+              icon="bullhorn"
+              content="Call Emergency Response Team: Code Violet"
+              onClick={() => act('callTheParameds')}
+            />
+          )}
+          {!!canMakeAnnouncement && (
+            <Button
+              icon="bullhorn"
+              content="Call Emergency Response Team: Code Amber"
+              onClick={() => act('callTheParameds')}
+            />
+          )}
+          {!!canMakeAnnouncement && (
+            <Button
+              icon="bullhorn"
+              content="Call Emergency Response Team: Code Red"
               onClick={() => act('callTheParameds')}
             />
           )}
@@ -752,23 +742,6 @@ export const comNTR = (props) => {
             />
           </Section>
         )}
-
-        {(!!canRequestSafeCode && (
-          <Section title="Emergency Safe Code">
-            <Button
-              icon="key"
-              content="Request Safe Code"
-              color="good"
-              onClick={() => act('requestSafeCodes')}
-            />
-          </Section>
-        )) ||
-          (!!safeCodeDeliveryWait && (
-            <Section title="Emergency Safe Code Delivery">
-              {`Drop pod to ${safeCodeDeliveryArea} in \
-            ${Math.round(safeCodeDeliveryWait / 10)}s`}
-            </Section>
-          ))}
 
         {!!authenticated &&
           ((page === STATE_BUYING_SHUTTLE && <PageBuyingShuttle />) ||
