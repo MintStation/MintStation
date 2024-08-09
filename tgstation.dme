@@ -6394,6 +6394,8 @@
 #include "interface\fonts\tiny_unicode.dm"
 #include "interface\fonts\vcr_osd_mono.dm"
 #include "modular_mint\centcom\code\centcom_admiral.dm"
+#include "modular_mint\centcom\code\centcom_console.dm"
+#include "modular_mint\centcom\code\centcom_ert.dm"
 #include "modular_mint\centcom\code\centcom_officer.dm"
 #include "modular_nova\master_files\code\_globalvars\configuration.dm"
 #include "modular_nova\master_files\code\_globalvars\regexes.dm"
