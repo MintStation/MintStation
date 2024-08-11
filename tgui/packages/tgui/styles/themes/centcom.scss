@@ -30,6 +30,11 @@ $nanotrasen: #256109;
   @include meta.load-css('../components/Section.scss');
 
   // Layouts
+  // MINT EDIT START
+  .Layout__content {
+    background-image: url('../../assets/bg-nanotrasen.svg');
+  }
+  // MINT EDIT END
   @include meta.load-css('../layouts/Layout.scss');
   @include meta.load-css('../layouts/Window.scss');
   @include meta.load-css(

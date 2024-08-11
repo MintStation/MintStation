@@ -446,6 +446,11 @@ const PageMain = (props) => {
           {
             // NOVA EDIT BEGIN
           }
+          <Button
+            icon="bullhorn"
+            content="Call Emergency Response Team"
+            onClick={() => act('createResponseTeam')}
+          />
           {!!canMakeAnnouncement && (
             <Button
               icon="bullhorn"

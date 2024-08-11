@@ -37,6 +37,11 @@ $nanotrasen: #384e68;
   // Layouts
   @include meta.load-css('../layouts/Layout.scss');
   @include meta.load-css('../layouts/Window.scss');
+  // MINT EDIT START
+  .Layout__content {
+    background-image: url('../../assets/bg-nanotrasen.svg');
+  }
+  // MINT EDIT END
   @include meta.load-css(
     '../layouts/TitleBar.scss',
     $with: ('background-color': color.scale($nanotrasen, $lightness: -25%))
