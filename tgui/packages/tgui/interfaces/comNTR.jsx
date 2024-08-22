@@ -13,7 +13,9 @@ import {
   Modal,
   Section,
   TextArea,
+  AnimatedNumber,
 } from '../components';
+import { formatMoney } from '../format';
 import { Window } from '../layouts';
 import { sanitizeText } from '../sanitize';
 import { StatusDisplayControls } from './common/StatusDisplayControls';
@@ -268,6 +270,8 @@ const PageMain = (props) => {
     shuttleCanEvacOrFailReason,
     shuttleLastCalled,
     shuttleRecallable,
+    points,
+    cpoints,
   } = data;
 
   const [callingShuttle, setCallingShuttle] = useState(false);
@@ -282,6 +286,23 @@ const PageMain = (props) => {
 
   return (
     <Box>
+      <Section title="Economic details">
+        <b>
+          <AnimatedNumber
+            value={points}
+            format={(value) => formatMoney(value)}
+          />
+        </b>
+        {' Station cr.'}
+        {'  |  '}
+        <b>
+          <AnimatedNumber
+            value={cpoints}
+            format={(value) => formatMoney(value)}
+          />
+        </b>
+        {' CentCom cr.'}
+      </Section>
       {!syndicate && (
         <Section title="Emergency Shuttle">
           {(!!shuttleCalled && (
@@ -451,48 +472,6 @@ const PageMain = (props) => {
             content="Call Emergency Response Team"
             onClick={() => act('createResponseTeam')}
           />
-          {!!canMakeAnnouncement && (
-            <Button
-              icon="bullhorn"
-              content="Call Emergency Response Team: Code Green"
-              onClick={() => act('callThePolice')}
-            />
-          )}
-          {!!canMakeAnnouncement && (
-            <Button
-              icon="bullhorn"
-              content="Call Emergency Response Team: Code Blue"
-              onClick={() => act('callTheCatmos')}
-            />
-          )}
-          {!!canMakeAnnouncement && (
-            <Button
-              icon="bullhorn"
-              content="Call Emergency Response Team: Code Orange"
-              onClick={() => act('callTheParameds')}
-            />
-          )}
-          {!!canMakeAnnouncement && (
-            <Button
-              icon="bullhorn"
-              content="Call Emergency Response Team: Code Violet"
-              onClick={() => act('callTheParameds')}
-            />
-          )}
-          {!!canMakeAnnouncement && (
-            <Button
-              icon="bullhorn"
-              content="Call Emergency Response Team: Code Amber"
-              onClick={() => act('callTheParameds')}
-            />
-          )}
-          {!!canMakeAnnouncement && (
-            <Button
-              icon="bullhorn"
-              content="Call Emergency Response Team: Code Red"
-              onClick={() => act('callTheParameds')}
-            />
-          )}
           {!!emagged && (
             <Button
               icon="bullhorn"

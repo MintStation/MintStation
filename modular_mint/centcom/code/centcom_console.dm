@@ -5,14 +5,18 @@
 #define STATE_CHANGING_STATUS "changing_status"
 #define STATE_MAIN "main"
 #define STATE_MESSAGES "messages"
-//NOVA EDIT ADDITION
+
 #define EMERGENCY_RESPONSE_POLICE "WOOP WOOP THAT'S THE SOUND OF THE POLICE"
 #define EMERGENCY_RESPONSE_ATMOS "DISCO INFERNO"
 #define EMERGENCY_RESPONSE_EMT "AAAAAUGH, I'M DYING, I NEEEEEEEEEED A MEDIC BAG"
 #define EMERGENCY_RESPONSE_EMAG "AYO THE PIZZA HERE"
-//NOVA EDIT END
 
 #define DUMMY_HUMAN_SLOT_ADMIN "admintools"
+
+/obj/item/card/id/departmental_budget/nt
+	department_ID = ACCOUNT_NT
+	department_name = ACCOUNT_NT_NAME
+	icon_state = "budgetcard"
 
 /obj/item/circuitboard/computer/centcom_console
 	name = "CentCom Management"
@@ -720,32 +724,6 @@
 				message_admins("[key_name_admin(usr)] tried to create a CentCom response team. Unfortunately, there were not enough candidates available.")
 				log_admin("[key_name(usr)] failed to create a CentCom response team.")
 
-		// NOVA EDIT ADDITION START
-		if ("callThePolice")
-			if(!pre_911_check(usr))
-				return
-			calling_911(usr, "Marshals", EMERGENCY_RESPONSE_POLICE)
-		if ("callTheCatmos")
-			if(!pre_911_check(usr))
-				return
-			calling_911(usr, "Advanced Atmospherics", EMERGENCY_RESPONSE_ATMOS)
-		if ("callTheParameds")
-			if(!pre_911_check(usr))
-				return
-			calling_911(usr, "EMTs", EMERGENCY_RESPONSE_EMT)
-		if("callThePizza")
-			if(!(obj_flags & EMAGGED))
-				return
-			if(!pre_911_check(usr))
-				return
-			GLOB.cops_arrived = TRUE
-			log_game("[key_name(usr)] has dialed for a pizza order from Dogginos using an emagged communications console.")
-			message_admins("[ADMIN_LOOKUPFLW(usr)] has dialed for a pizza order from Dogginos using an emagged communications console.")
-			deadchat_broadcast(" has dialed for a pizza order from Dogginos using an emagged communications console.", span_name("[usr.real_name]"), usr, message_type=DEADCHAT_ANNOUNCEMENT)
-			GLOB.pizza_order = pick(GLOB.pizza_names)
-			call_911(EMERGENCY_RESPONSE_EMAG)
-			to_chat(usr, span_notice("Thank you for choosing Dogginos, [GLOB.pizza_order]!"))
-			playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, FALSE)
 		if("toggleEngOverride")
 			if(emergency_access_cooldown(usr)) //if were in cooldown, dont allow the following code
 				return
@@ -934,6 +912,14 @@
 			if (STATE_CHANGING_STATUS)
 				data["upperText"] = last_status_display ? last_status_display[1] : ""
 				data["lowerText"] = last_status_display ? last_status_display[2] : ""
+
+	var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_CAR)
+	if(D)
+		data["points"] = D.account_balance
+
+	var/datum/bank_account/F = SSeconomy.get_dep_account(ACCOUNT_NT)
+	if(F)
+		data["cpoints"] = F.account_balance
 
 	return data
 

@@ -41,7 +41,10 @@
 #define ACCOUNT_CAR_NAME "Cargo Budget"
 #define ACCOUNT_SEC "SEC"
 #define ACCOUNT_SEC_NAME "Defense Budget"
-
+// MINT EDIT START
+#define ACCOUNT_NT "NT"
+#define ACCOUNT_NT_NAME "CentCom Budget"
+// MINT EDIT END
 #define IS_DEPARTMENTAL_CARD(card) (card in SSeconomy.dep_cards)
 #define IS_DEPARTMENTAL_ACCOUNT(account) (account in SSeconomy.departmental_accounts)
 
