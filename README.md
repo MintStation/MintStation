@@ -1,4 +1,4 @@
-##  MintStation (/tg/station Downstream)
+##  MintStation (Nova Sector Downstream)
 
 [![CI Suite](https://github.com/NovaSector/NovaSector/workflows/CI%20Suite/badge.svg)](https://github.com/NovaSector/NovaSector/actions?query=workflow%3A%22CI+Suite%22)
 [![Percentage of issues still open](https://isitmaintained.com/badge/open/NovaSector/NovaSector.svg)](https://isitmaintained.com/project/NovaSector/NovaSector "Percentage of issues still open")
@@ -18,7 +18,7 @@
 | Nova Sector's Discord     | [https://discord.gg/novasector](https://discord.gg/novasector) |
 | Coderbus Discord          | [https://discord.gg/Vh8TJp9](https://discord.gg/Vh8TJp9)               |
 
-This is MintStation's downstream fork of /tg/station created in byond.
+This is MintStation's downstream fork of Nova Sector created in byond.
 
 **Please note that this repository contains sexually explicit content and is not suitable for those under the age of 18.**
 
