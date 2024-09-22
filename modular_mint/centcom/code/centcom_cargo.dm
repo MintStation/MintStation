@@ -1,39 +1,36 @@
-/obj/machinery/computer/cargo/express
-	name = "express supply console"
+/obj/machinery/computer/cargo/express/centcom
+	name = "centcom express supply console"
 	desc = "This console allows the user to purchase a package \
 		with 1/40th of the delivery time: made possible by Nanotrasen's new \"1500mm Orbital Railgun\".\
 		All sales are near instantaneous - please choose carefully"
 	icon_screen = "supply_express"
 	circuit = /obj/item/circuitboard/computer/cargo/express
 	blockade_warning = "Bluespace instability detected. Delivery impossible."
-	req_access = list(ACCESS_CARGO)
+	req_access = list(ACCESS_CENT_GENERAL)
 	is_express = TRUE
-	interface_type = "CargoExpress"
+	interface_type = "CentComCargoExpress"
 
-	var/message
-	var/printed_beacons = 0 //number of beacons printed. Used to determine beacon names.
-	var/list/meme_pack_data
-	var/obj/item/supplypod_beacon/beacon //the linked supplypod beacon
-	var/area/landingzone = /area/station/cargo/storage //where we droppin boys
-	var/podType = /obj/structure/closet/supplypod
-	var/cooldown = 0 //cooldown to prevent printing supplypod beacon spam
-	var/locked = TRUE //is the console locked? unlock with ID
-	var/usingBeacon = FALSE //is the console in beacon mode? exists to let beacon know when a pod may come in
+	podType = /obj/structure/closet/supplypod/centcompod
+	cooldown = 0 //cooldown to prevent printing supplypod beacon spam
 
-/obj/machinery/computer/cargo/express/Initialize(mapload)
+/obj/item/circuitboard/computer/cargo/express/centcom
+	name = "CentCom Express Supply Console"
+	build_path = /obj/machinery/computer/cargo/express/centcom
+
+/obj/machinery/computer/cargo/express/centcom/Initialize(mapload)
 	. = ..()
 	packin_up()
 
-/obj/machinery/computer/cargo/express/on_construction(mob/user)
+/obj/machinery/computer/cargo/express/centcom/on_construction(mob/user)
 	. = ..()
 	packin_up()
 
-/obj/machinery/computer/cargo/express/Destroy()
+/obj/machinery/computer/cargo/express/centcom/Destroy()
 	if(beacon)
 		beacon.unlink_console()
 	return ..()
 
-/obj/machinery/computer/cargo/express/attackby(obj/item/W, mob/living/user, params)
+/obj/machinery/computer/cargo/express/centcom/attackby(obj/item/W, mob/living/user, params)
 	if(W.GetID() && allowed(user))
 		locked = !locked
 		to_chat(user, span_notice("You [locked ? "lock" : "unlock"] the interface."))
@@ -52,7 +49,7 @@
 			to_chat(user, span_alert("[src] is already linked to [sb]."))
 	..()
 
-/obj/machinery/computer/cargo/express/emag_act(mob/user, obj/item/card/emag/emag_card)
+/obj/machinery/computer/cargo/express/centcom/emag_act(mob/user, obj/item/card/emag/emag_card)
 	if(obj_flags & EMAGGED)
 		return FALSE
 	if(user)
@@ -68,11 +65,11 @@
 	packin_up()
 	return TRUE
 
-/obj/machinery/computer/cargo/express/proc/packin_up() // oh shit, I'm sorry
+/obj/machinery/computer/cargo/express/centcom/packin_up() // oh shit, I'm sorry
 	meme_pack_data = list() // sorry for what?
 	for(var/pack in SSshuttle.supply_packs) // our quartermaster taught us not to be ashamed of our supply packs
-		var/datum/supply_pack/P = SSshuttle.supply_packs[pack]  // specially since they're such a good price and all
-		if(!meme_pack_data[P.group] && !(P.iscentcom)) // MINT EDIT
+		var/datum/supply_pack/centcom/P = SSshuttle.supply_packs[pack]  // specially since they're such a good price and all
+		if(!meme_pack_data[P.group] && P.iscentcom) // yeah, I see that, your quartermaster gave you good advice
 			meme_pack_data[P.group] = list( // it gets cheaper when I return it
 				"name" = P.group, // mmhm
 				"packs" = list()  // sometimes, I return it so much, I rip the manifest
@@ -81,10 +78,8 @@
 			continue// by using someone else's crate
 		if(P.contraband && !contraband) // will you show me?
 			continue // i'd be right happy to
-		// MINT EDIT START
-		if(P.iscentcom)
+		if(!(P.iscentcom))
 			continue
-		// MINT EDIT END
 		meme_pack_data[P.group]["packs"] += list(list(
 			"name" = P.name,
 			"cost" = P.get_cost(),
@@ -92,10 +87,10 @@
 			"desc" = P.desc || P.name // If there is a description, use it. Otherwise use the pack's name.
 		))
 
-/obj/machinery/computer/cargo/express/ui_data(mob/user)
+/obj/machinery/computer/cargo/express/centcom/ui_data(mob/user)
 	var/canBeacon = beacon && (isturf(beacon.loc) || ismob(beacon.loc))//is the beacon in a valid location?
 	var/list/data = list()
-	var/datum/bank_account/D = SSeconomy.get_dep_account(cargo_account)
+	var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_NT)
 	if(D)
 		data["points"] = D.account_balance
 	data["locked"] = locked//swipe an ID to unlock
@@ -127,7 +122,7 @@
 		cooldown--
 	return data
 
-/obj/machinery/computer/cargo/express/ui_act(action, params, datum/tgui/ui)
+/obj/machinery/computer/cargo/express/centcom/ui_act(action, params, datum/tgui/ui)
 	. = ..()
 	if(.)
 		return
@@ -142,7 +137,7 @@
 			if (beacon)
 				beacon.update_status(SP_READY) //turns on the beacon's ready light
 		if("printBeacon")
-			var/datum/bank_account/D = SSeconomy.get_dep_account(cargo_account)
+			var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_NT)
 			if(D)
 				if(D.adjust_money(-BEACON_COST))
 					cooldown = 10//a ~ten second cooldown for printing beacons to prevent spam
@@ -175,7 +170,7 @@
 			var/list/empty_turfs
 			var/datum/supply_order/SO = new(pack, name, rank, ckey, reason)
 			var/points_to_check
-			var/datum/bank_account/D = SSeconomy.get_dep_account(cargo_account)
+			var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_NT)
 			if(D)
 				points_to_check = D.account_balance
 			if(!(obj_flags & EMAGGED))
@@ -228,4 +223,3 @@
 							. = TRUE
 							update_appearance()
 							CHECK_TICK
-

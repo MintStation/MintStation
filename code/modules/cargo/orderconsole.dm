@@ -164,12 +164,12 @@
 	data["supplies"] = list()
 	for(var/pack in SSshuttle.supply_packs)
 		var/datum/supply_pack/P = SSshuttle.supply_packs[pack]
-		if(!data["supplies"][P.group])
+		if(!data["supplies"][P.group] && !(P.iscentcom)) // MINT EDIT
 			data["supplies"][P.group] = list(
 				"name" = P.group,
 				"packs" = list()
 			)
-		if((P.hidden && !(obj_flags & EMAGGED)) || (P.contraband && !contraband) || (P.special && !P.special_enabled) || P.drop_pod_only)
+		if((P.hidden && !(obj_flags & EMAGGED)) || (P.contraband && !contraband) || (P.special && !P.special_enabled) || P.drop_pod_only || (P.iscentcom)) // MINT EDIT: (P.iscentcom)
 			continue
 		data["supplies"][P.group]["packs"] += list(list(
 			"name" = P.name,

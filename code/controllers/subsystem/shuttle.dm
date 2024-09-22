@@ -151,6 +151,10 @@ SUBSYSTEM_DEF(shuttle)
 		if(pack == /datum/supply_pack/armament)
 			continue
 		//NOVA EDIT END
+		// MINT EDIT START
+		if(pack == /datum/supply_pack/centcom)
+			continue
+		// MINT EDIT END
 		if(ispath(pack, /datum/supply_pack))
 			pack = new pack
 

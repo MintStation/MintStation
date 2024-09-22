@@ -4,8 +4,8 @@
 			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 			<style type='text/css'>
 				@font-face {
-					font-family: "Fixedsys";
-					src: url("FixedsysExcelsior3.01Regular.ttf");
+					font-family: "Nunito", sans-serif;
+					font-weight: 700;
 				}
 				body,
 				html {
@@ -114,17 +114,16 @@
 					left:50%;
 					transform: translate(-50%, -50%);
 					z-index: 1;
-					border: 2px solid white;
-					border-radius: 4px;
-					box-shadow: 2px 2px #333, inset 1px 1px #333;
-					background: linear-gradient(to bottom, rgba(68, 68, 204, 0.9), rgba(0, 0, 102, 0.9));
+					border-left: 4px solid white;
+					border-radius: 0px;
+					background: linear-gradient(to right, #4a9167, rgba(0, 0, 0, 0));
 					opacity: 75%;
 					padding: 1em;
 				}
 
 				.container_nav hr {
 					height: 2px;
-					background-color: #cde;
+					background-color: #8cffb1;
 					border: none;
 					box-shadow: 2px 2px black;
 				}
@@ -132,21 +131,26 @@
 				.menu_button {
 					display: block;
 					box-sizing: border-box;
-					font-family: "Fixedsys";
+					font-family: "Nunito";
 					font-weight: lighter;
 					text-decoration: none;
-					font-size: 4vmin;
-					text-shadow: 2px 2px black;
+					font-size: 3vmin;
 					line-height: 4vmin;
 					width: 100%;
 					text-align: left;
-					color: #cde;
-					height: 4vmin;
+					color: #118c4c;
+					height: 6vmin;
 					padding-left: 5vmin;
 					letter-spacing: 1px;
 					cursor: pointer;
 					white-space: nowrap;
 					overflow: hidden;
+					background-color: #24f27e;
+              		background-repeat: repeat;
+              		background-size: 200px 200px;
+					padding: 5px 5px 5px 30px;
+              		border-radius: 116px 12px 116px 12px;
+              		padding-top: 5px;
 				}
 
 				.menu_button:hover {
@@ -160,7 +164,7 @@
 				}
 
 				.menu_button:hover::before {
-					content: "☞";
+					content: "➤";
 					text-align: center;
 					width: 5vmin;
 					display: inline-block;
@@ -172,14 +176,14 @@
 				}
 
 				.menu_button:active::before {
-					content: "☛";
+					content: "➤";
 					text-align: center;
 					width: 5vmin;
 					animation: pulse_button 0.25s infinite alternate;
 				}
 
 				@keyframes pollsbox {
-					0% {color: #cde;}
+					0% {color: #e7eecc;}
 					50% {color: #f80;}
 				}
 

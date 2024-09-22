@@ -13,6 +13,9 @@
 
 #define DUMMY_HUMAN_SLOT_ADMIN "admintools"
 
+/datum/ert
+	var/cost
+
 /obj/item/card/id/departmental_budget/nt
 	department_ID = ACCOUNT_NT
 	department_name = ACCOUNT_NT_NAME
@@ -122,6 +125,7 @@
 	.["mainsettings"]["teamsize"]["value"] = newtemplate.teamsize
 	.["mainsettings"]["mission"]["value"] = newtemplate.mission
 	.["mainsettings"]["polldesc"]["value"] = newtemplate.polldesc
+	.["mainsettings"]["cost"]["value"] = newtemplate.cost
 	.["mainsettings"]["open_armory"]["value"] = newtemplate.opendoors ? "Yes" : "No"
 	.["mainsettings"]["leader_experience"]["value"] = newtemplate.leader_experience ? "Yes" : "No"
 	.["mainsettings"]["random_names"]["value"] = newtemplate.random_names ? "Yes" : "No"
@@ -189,6 +193,7 @@
 		"teamsize" = list("desc" = "Team Size", "type" = "number", "value" = ertemplate.teamsize),
 		"mission" = list("desc" = "Mission", "type" = "string", "value" = ertemplate.mission),
 		"polldesc" = list("desc" = "Ghost poll description", "type" = "string", "value" = ertemplate.polldesc),
+		"cost" = list("desc" = "Cost", "type" = "number", "value" = ertemplate.cost),
 		"enforce_human" = list("desc" = "Enforce human authority", "type" = "boolean", "value" = "[(CONFIG_GET(flag/enforce_human_authority) ? "Yes" : "No")]"),
 		"open_armory" = list("desc" = "Open armory doors", "type" = "boolean", "value" = "[(ertemplate.opendoors ? "Yes" : "No")]"),
 		"leader_experience" = list("desc" = "Pick an experienced leader", "type" = "boolean", "value" = "[(ertemplate.leader_experience ? "Yes" : "No")]"),
@@ -217,6 +222,7 @@
 		ertemplate.teamsize = prefs["teamsize"]["value"]
 		ertemplate.mission = prefs["mission"]["value"]
 		ertemplate.polldesc = prefs["polldesc"]["value"]
+		ertemplate.cost = prefs["cost"]["value"]
 		ertemplate.enforce_human = prefs["enforce_human"]["value"] == "Yes" // these next 6 are effectively toggles
 		ertemplate.opendoors = prefs["open_armory"]["value"] == "Yes"
 		ertemplate.leader_experience = prefs["leader_experience"]["value"] == "Yes"
@@ -240,6 +246,9 @@
 		if(!length(candidates))
 			return FALSE
 
+		var/datum/bank_account/stationbal = SSeconomy.get_dep_account(ACCOUNT_CAR)
+		var/datum/bank_account/centcombal = SSeconomy.get_dep_account(ACCOUNT_NT)
+
 		if(ertemplate.use_custom_shuttle && ertemplate.ert_template)
 			to_chat(usr, span_boldnotice("Attempting to spawn ERT custom shuttle, this may take a few seconds..."))
 			var/datum/map_template/shuttle/ship = new ertemplate.ert_template
@@ -252,6 +261,9 @@
 
 			if(!ship.load(located_turf))
 				CRASH("Loading ERT shuttle failed!")
+
+			if(stationbal.has_money(ertemplate.cost))
+				CRASH("Not enought currency!")
 
 			var/list/shuttle_turfs = ship.get_affected_turfs(located_turf)
 
@@ -350,6 +362,10 @@
 			//NOVA EDIT ADDITION BEGIN
 			if(ertemplate.notify_players)
 				priority_announce("Central command has responded to your request for a CODE [uppertext(ertemplate.code)] Emergency Response Team and have confirmed one to be enroute.", "ERT Request", ANNOUNCER_ERTYES)
+
+			stationbal.adjust_money(-ertemplate.cost)
+			centcombal.adjust_money(ertemplate.cost)
+
 			//NOVA EDIT END
 		//Open the Armory doors
 		if(ertemplate.opendoors)
