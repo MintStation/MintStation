@@ -15,7 +15,6 @@
 
 /datum/ert
 	var/cost
-	var/mob/living/carbon/human/mob_type
 
 /obj/item/card/id/departmental_budget/nt
 	department_ID = ACCOUNT_NT
