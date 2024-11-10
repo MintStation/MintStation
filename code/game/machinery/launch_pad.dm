@@ -98,7 +98,7 @@
 /// Updates diagnostic huds
 /obj/machinery/launchpad/proc/update_hud()
 	var/image/holder = hud_list[DIAG_LAUNCHPAD_HUD]
-	var/mutable_appearance/target = mutable_appearance('icons/effects/effects.dmi', "launchpad_target", ABOVE_OPEN_TURF_LAYER, src, GAME_PLANE)
+	var/mutable_appearance/target = mutable_appearance('icons/effects/effects.dmi', "launchpad_target", ABOVE_NORMAL_TURF_LAYER, src, GAME_PLANE)
 	holder.appearance = target
 
 	update_indicator()
@@ -417,7 +417,7 @@
 		return
 	pad.doteleport(user, sending)
 
-/obj/item/launchpad_remote/ui_act(action, params)
+/obj/item/launchpad_remote/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return

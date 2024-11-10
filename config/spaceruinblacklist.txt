@@ -44,6 +44,7 @@
 #_maps/RandomRuins/SpaceRuins/garbagetruck3.dmm
 #_maps/RandomRuins/SpaceRuins/garbagetruck4.dmm
 #_maps/RandomRuins/SpaceRuins/gondolaasteroid.dmm
+#_maps/RandomRuins/SpaceRuins/hauntedtradingpost.dmm
 #_maps/RandomRuins/SpaceRuins/hellfactory.dmm
 #_maps/RandomRuins/SpaceRuins/hilbertsresearchfacility.dmm
 #_maps/RandomRuins/SpaceRuins/infested_frigate.dmm
@@ -99,7 +100,6 @@ _maps/RandomRuins/SpaceRuins/spacehotel.dmm
 #_maps/RandomRuins/SpaceRuins/nova/port_tarkon.dmm
 #_maps/RandomRuins/SpaceRuins/nova/posterpandamonium.dmm
 #_maps/RandomRuins/SpaceRuins/nova/prisonshuttle.dmm
-#_maps/RandomRuins/SpaceRuins/nova/salvagepost.dmm
 #_maps/RandomRuins/SpaceRuins/nova/scrapeheap.dmm
 #_maps/RandomRuins/SpaceRuins/nova/shuttle8532.dmm
 #_maps/RandomRuins/SpaceRuins/nova/shuttlescrap.dmm

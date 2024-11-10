@@ -177,7 +177,7 @@
 		flags_1 |= PREVENT_CONTENTS_EXPLOSION_1
 	}
 
-	if(HAS_TRAIT(SSstation, STATION_TRAIT_BOTS_GLITCHED))
+	if(HAS_TRAIT(SSstation, STATION_TRAIT_MACHINES_GLITCHED) && mapload)
 		randomize_language_if_on_station()
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_MACHINE, src)
 
@@ -284,10 +284,21 @@
 /obj/machinery/proc/locate_machinery()
 	return
 
+///Early process for machines added to SSmachines.processing_early to prioritize power draw
+/obj/machinery/proc/process_early()
+	set waitfor = FALSE
+	return PROCESS_KILL
+
 /obj/machinery/process()//If you dont use process or power why are you here
 	return PROCESS_KILL
 
+///Late process for machines added to SSmachines.processing_late to gather accurate recordings
+/obj/machinery/proc/process_late()
+	set waitfor = FALSE
+	return PROCESS_KILL
+
 /obj/machinery/proc/process_atmos()//If you dont use process why are you here
+	set waitfor = FALSE
 	return PROCESS_KILL
 
 ///Called when we want to change the value of the machine_stat variable. Holds bitflags.
@@ -405,6 +416,10 @@
 /obj/machinery/proc/close_machine(atom/movable/target, density_to_set = TRUE)
 	state_open = FALSE
 	set_density(density_to_set)
+	if (!density)
+		update_appearance()
+		return
+
 	if(!target)
 		for(var/atom in loc)
 			if (!(can_be_occupant(atom)))
@@ -672,10 +687,11 @@
 	return ..()
 
 /obj/machinery/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	add_fingerprint(usr)
-	update_last_used(usr)
-	if(HAS_AI_ACCESS(usr) && !GLOB.cameranet.checkTurfVis(get_turf(src))) //We check if they're an AI specifically here, so borgs can still access off-camera stuff.
-		to_chat(usr, span_warning("You can no longer connect to this device!"))
+	var/mob/user = ui.user
+	add_fingerprint(user)
+	update_last_used(user)
+	if(isAI(user) && !GLOB.cameranet.checkTurfVis(get_turf(src))) //We check if they're an AI specifically here, so borgs/adminghosts/human wand can still access off-camera stuff.
+		to_chat(user, span_warning("You can no longer connect to this device!"))
 		return FALSE
 	return ..()
 
@@ -832,10 +848,13 @@
 		return //Just delete us, no need to call anything else.
 
 	on_deconstruction(disassembled)
+
+	if(circuit)
+		spawn_frame(disassembled)
+
 	if(!LAZYLEN(component_parts))
 		dump_contents() //drop everything inside us
 		return //we don't have any parts.
-	spawn_frame(disassembled)
 
 	for(var/part in component_parts)
 		if(istype(part, /datum/stock_part))

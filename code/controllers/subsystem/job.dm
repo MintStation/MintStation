@@ -293,12 +293,11 @@ SUBSYSTEM_DEF(job)
 		if(job.departments_bitflags & DEPARTMENT_BITFLAG_COMMAND) //If you want a command position, select it!
 			JobDebug("GRJ skipping command role, Player: [player], Job: [job]")
 			continue
-
 		//NOVA EDIT ADDITION
 		if(job.departments_bitflags & DEPARTMENT_BITFLAG_CENTRAL_COMMAND) //If you want a CC position, select it!
 			JobDebug("GRJ skipping Central Command role, Player: [player], Job: [job]")
 			continue
-		//NOVA EDIT END
+		//NOVA EDIT ADDITION END
 
 		// This check handles its own output to JobDebug.
 		if(check_job_eligibility(player, job, "GRJ", add_job_to_log = TRUE) != JOB_AVAILABLE)
@@ -395,6 +394,7 @@ SUBSYSTEM_DEF(job)
 	//Setup new player list and get the jobs list
 	JobDebug("Running DO, allow_all = [allow_all], pure = [pure]")
 	run_divide_occupation_pure = pure
+	SEND_SIGNAL(src, COMSIG_OCCUPATIONS_DIVIDED, pure, allow_all)
 
 	//Get the players who are ready
 	for(var/i in GLOB.new_player_list)
@@ -562,13 +562,12 @@ SUBSYSTEM_DEF(job)
 	// The alt job title, if user picked one, or the default
 	var/alt_title = player_client?.prefs.alt_job_titles?[job.title] || job.title
 	// NOVA EDIT ADDITION END
-
 	equipping.job = job.title
 
 	SEND_SIGNAL(equipping, COMSIG_JOB_RECEIVED, job)
 
 	equipping.mind?.set_assigned_role_with_greeting(job, player_client, alt_title) // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: equipping.mind?.set_assigned_role_with_greeting(job, player_client)
-	equipping.on_job_equipping(job, player_client?.prefs, player_client) // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: equipping.on_job_equipping(job)
+	equipping.on_job_equipping(job, player_client)
 	job.announce_job(equipping, alt_title) // NOVA EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: job.announce_job(equipping)
 
 	if(player_client?.holder)
@@ -608,8 +607,7 @@ SUBSYSTEM_DEF(job)
 	var/ssc = CONFIG_GET(number/security_scaling_coeff)
 	if(ssc > 0)
 		if(J.spawn_positions > 0)
-			// NOVA EDIT - Reduced from 12 max sec to 7 max sec due to departmental security being deactivated and replaced.
-			var/officer_positions = min(7, max(J.spawn_positions, round(unassigned.len / ssc))) //Scale between configured minimum and 12 officers
+			var/officer_positions = min(7, max(J.spawn_positions, round(unassigned.len / ssc))) //Scale between configured minimum and 12 officers // NOVA EDIT CHANGE - Reduced from 12 max sec to 7 max sec due to departmental security being deactivated and replaced.
 			JobDebug("Setting open security officer positions to [officer_positions]")
 			J.total_positions = officer_positions
 			J.spawn_positions = officer_positions
@@ -634,6 +632,7 @@ SUBSYSTEM_DEF(job)
 		var/never = 0 //never
 		var/banned = 0 //banned
 		var/young = 0 //account too young
+		var/newbie = 0 //exp too low
 		for(var/i in GLOB.new_player_list)
 			var/mob/dead/new_player/player = i
 			if(!(player.ready == PLAYER_READY_TO_PLAY && player.mind && is_unassigned_job(player.mind.assigned_role)))
@@ -645,7 +644,7 @@ SUBSYSTEM_DEF(job)
 				young++
 				continue
 			if(job.required_playtime_remaining(player.client))
-				young++
+				newbie++
 				continue
 			switch(player.client.prefs.job_preferences[job.title])
 				if(JP_HIGH)
@@ -662,6 +661,7 @@ SUBSYSTEM_DEF(job)
 		SSblackbox.record_feedback("nested tally", "job_preferences", never, list("[job.title]", "never"))
 		SSblackbox.record_feedback("nested tally", "job_preferences", banned, list("[job.title]", "banned"))
 		SSblackbox.record_feedback("nested tally", "job_preferences", young, list("[job.title]", "young"))
+		SSblackbox.record_feedback("nested tally", "job_preferences", newbie, list("[job.title]", "newbie"))
 
 /datum/controller/subsystem/job/proc/PopcapReached()
 	var/hpc = CONFIG_GET(number/hard_popcap)
@@ -752,9 +752,11 @@ SUBSYSTEM_DEF(job)
 	if(!spawn_turf)
 		SendToLateJoin(living_mob)
 	else
-		var/obj/structure/closet/supplypod/centcompod/toLaunch = new()
-		living_mob.forceMove(toLaunch)
-		new /obj/effect/pod_landingzone(spawn_turf, toLaunch)
+		podspawn(list(
+			"target" = spawn_turf,
+			"path" = /obj/structure/closet/supplypod/centcompod,
+			"spawn" = living_mob
+		))
 
 /// Returns a list of minds of all heads of staff who are alive
 /datum/controller/subsystem/job/proc/get_living_heads()
