@@ -1,8 +1,3 @@
-#define SOLFED_AMT "amount"
-#define SOLFED_VOTES "votes"
-#define SOLFED_DECLARED "declared"
-#define SOLFED_FINE_AMOUNT -20000
-
 #define EMERGENCY_RESPONSE_POLICE "WOOP WOOP THAT'S THE SOUND OF THE POLICE"
 #define EMERGENCY_RESPONSE_ATMOS "DISCO INFERNO"
 #define EMERGENCY_RESPONSE_EMT "AAAAAUGH, I'M DYING, I NEEEEEEEEEED A MEDIC BAG"
@@ -76,7 +71,7 @@
 
 		var/list/spawnpoints = GLOB.emergencyresponseteamspawn
 		var/index = 0
-		GLOB.solfed_responder_info[list_to_use][SOLFED_AMT] = agents_number
+		GLOB.solfed_responder_info[list_to_use]["amount"] = agents_number
 		while(agents_number && candidates.len)
 			var/spawn_loc = spawnpoints[index + 1]
 			//loop through spawnpoints one at a time
