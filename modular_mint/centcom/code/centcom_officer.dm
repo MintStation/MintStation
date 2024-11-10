@@ -1,6 +1,6 @@
 /datum/job/centcom_officer
 	title = JOB_CCNT_OFFICER
-	description = "Represent Nanotrasen on the station, argue with the HoS about why he can't just field execute people for petty theft, get drunk in your office."
+	description = "They're elite officers of NanoTrasen that works in Central Command. They should work with requests from station and provide support if necessary."
 	department_head = list(JOB_CENTCOM)
 	faction = FACTION_STATION
 	total_positions = 4
