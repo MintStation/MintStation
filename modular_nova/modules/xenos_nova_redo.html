@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><base href="../../"><link rel="stylesheet" href="dmdoc.css"><title>modular_nova/modules/xenos_nova_redo/readme.md - /tg/ Station 13</title></head><body><header><a href="index.html">/tg/ Station 13</a> - <a href="index.html#modules">Modules</a> - <a href="index.html#types">Types</a></header><main><h1>modular_nova/modules/xenos_nova_redo/readme.md <a href="https://github.com/MintStation/MintStation/blob/af726a7b14c9049af04e4a24d7489e71c4f3c6e7/modular_nova/modules/xenos_nova_redo/readme.md0"><img src="git.png" width="16" height="16" title="modular_nova/modules/xenos_nova_redo/readme.md0"></a></h1><table class="summary" cellspacing="0"><tr><td colspan="2"><h2 id="title-nova-sector-xeno-rework">Title: Nova Sector Xeno Rework</h2>
+<p>MODULE ID: NOVA_XENO_REDO</p>
+<h3 id="description">Description:</h3>
+<p>Reworks and rebalances xenomorphs to be more in line a tgmc style of alien, especially focusing on unique abilites and lack of rclick and ranged instant hardstuns</p>
+<h3 id="tg-proc-file-changes">TG Proc/File Changes:</h3>
+<ul>
+<li>
+<p>MOVED:
+code\modules\mob\living\carbon\alien\larva\powers.dm &gt; /datum/action/cooldown/alien/larva_evolve/Activate
+TO:
+modular_nova\modules\xenos_nova_redo\code\larva.dm</p>
+</li>
+<li>
+<p>MOVED:
+code\modules\mob\living\carbon\human\human_defense.dm &gt; /mob/living/carbon/human/attack_alien
+TO:
+modular_nova\modules\xenos_nova_redo\code\human_defense.dm</p>
+</li>
+</ul>
+<h3 id="defines">Defines:</h3>
+<p>IN: code/__DEFINES/~nova_defines/traits.dm</p>
+<ul>
+<li>TRAIT_XENO_INNATE</li>
+<li>TRAIT_XENO_ABILITY_GIVEN</li>
+<li>TRAIT_XENO_HEAL_AURA</li>
+</ul>
+<h3 id="master-file-additions">Master file additions</h3>
+<ul>
+<li>N/A</li>
+</ul>
+<h3 id="included-files-that-are-not-contained-in-this-module">Included files that are not contained in this module:</h3>
+<ul>
+<li>N/A</li>
+</ul>
+<h3 id="credits">Credits:</h3>
+<p>TGMC - Where the sprites, sound, and ideas for caste abilities came from
+Those two rounds where xenos curbstomped the whole station - Inspiration for doing this in the first place</p></td></tr></table></main><footer>tgstation.dme <a href="https://github.com/MintStation/MintStation/tree/af726a7b14c9049af04e4a24d7489e71c4f3c6e7">af726a7</a> (master) — <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.9.0</a></footer></body></html>
