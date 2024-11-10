@@ -696,6 +696,9 @@
 	color = LIGHT_COLOR_GREEN
 	light_color = LIGHT_COLOR_GREEN
 
+/obj/item/flashlight/lantern/jade/on
+	start_on = TRUE
+
 /obj/item/flashlight/slime
 	gender = PLURAL
 	name = "glowing slime extract"
@@ -932,6 +935,7 @@
 	light_range = 4
 	light_power = 2
 	alpha = 0
+	layer = ABOVE_OPEN_TURF_LAYER
 	plane = FLOOR_PLANE
 	anchored = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
@@ -962,14 +966,10 @@
 	var/dark_light_range = 2.5
 	///Variable to preserve old lighting behavior in flashlights, to handle darkness.
 	var/dark_light_power = -3
-	var/on = FALSE
 
 /obj/item/flashlight/flashdark/update_brightness()
 	. = ..()
-	if(on)
-		set_light(dark_light_range, dark_light_power)
-	else
-		set_light(0)
+	set_light(dark_light_range, dark_light_power)
 
 //type and subtypes spawned and used to give some eyes lights,
 /obj/item/flashlight/eyelight

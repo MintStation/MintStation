@@ -1,5 +1,5 @@
 
-#define EMOTE_DELAY (5 SECONDS) //To prevent spam emotes.
+#define EMOTE_DELAY (2 SECONDS) //To prevent spam emotes.
 
 /mob
 	var/nextsoundemote = 1 //Time at which the next emote can be played
@@ -68,15 +68,14 @@
 
 /datum/emote/living/sniff/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
-	if(.)
-		var/turf/open/current_turf = get_turf(user)
-		if(istype(current_turf) && current_turf.pollution)
-			if(iscarbon(user))
-				var/mob/living/carbon/carbon_user = user
-				if(carbon_user.internal) //Breathing from internals means we cant smell
-					return
-				carbon_user.next_smell = world.time + SMELL_COOLDOWN
-			current_turf.pollution.smell_act(user)
+	var/turf/open/current_turf = get_turf(user)
+	if(istype(current_turf) && current_turf.pollution)
+		if(iscarbon(user))
+			var/mob/living/carbon/carbon_user = user
+			if(carbon_user.internal) //Breathing from internals means we cant smell
+				return
+			carbon_user.next_smell = world.time + SMELL_COOLDOWN
+		current_turf.pollution.smell_act(user)
 
 
 /datum/emote/living/peep
@@ -189,13 +188,18 @@
 	sound = 'modular_nova/modules/emotes/sound/emotes/meow.ogg'
 
 /datum/emote/living/hiss
-	key = "hiss1"
+	key = "hiss"
 	key_third_person = "hisses"
 	message = "hisses!"
 	emote_type = EMOTE_AUDIBLE
 	mob_type_allowed_typecache = list(/mob/living/carbon, /mob/living/silicon/pai)
 	vary = TRUE
-	sound = 'modular_nova/modules/emotes/sound/emotes/hiss.ogg'
+
+/datum/emote/living/hiss/get_sound(mob/living/user)
+	if(isxenohybrid(user))
+		return SFX_HISS
+	else
+		return 'modular_nova/modules/emotes/sound/emotes/hiss.ogg'
 
 /datum/emote/living/chitter
 	key = "chitter"
@@ -231,6 +235,10 @@
 
 /datum/emote/living/gasp/get_sound(mob/living/user)
 	if(iscarbon(user))
+		if(isxenohybrid(user))
+			return pick('sound/voice/lowHiss2.ogg',
+						'sound/voice/lowHiss3.ogg',
+						'sound/voice/lowHiss4.ogg')
 		if(user.gender == MALE)
 			return pick('modular_nova/modules/emotes/sound/emotes/male/gasp_m1.ogg',
 						'modular_nova/modules/emotes/sound/emotes/male/gasp_m2.ogg',
@@ -276,7 +284,7 @@
 				'modular_nova/modules/emotes/sound/emotes/clap3.ogg',
 				'modular_nova/modules/emotes/sound/emotes/clap4.ogg')
 
-/datum/emote/living/clap/can_run_emote(mob/living/carbon/user, status_check = TRUE , intentional)
+/datum/emote/living/clap/can_run_emote(mob/living/carbon/user, status_check = TRUE , intentional, params)
 	if(user.usable_hands < 2)
 		return FALSE
 	return ..()
@@ -294,7 +302,7 @@
 	return pick('modular_nova/modules/emotes/sound/emotes/claponce1.ogg',
 				'modular_nova/modules/emotes/sound/emotes/claponce2.ogg')
 
-/datum/emote/living/clap1/can_run_emote(mob/living/carbon/user, status_check = TRUE , intentional)
+/datum/emote/living/clap1/can_run_emote(mob/living/carbon/user, status_check = TRUE , intentional, params)
 	if(user.usable_hands < 2)
 		return FALSE
 	return ..()
