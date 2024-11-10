@@ -1,17 +1,17 @@
-/datum/job/centcom_admiral
-	title = JOB_CCNT_ADMIRAL
-	description = "A high-ranking official who is the highest executive power in Central Command"
+/datum/job/centcom_officer
+	title = JOB_CCNT_OFFICER
+	description = "They're elite officers of NanoTrasen that works in Central Command. They should work with requests from station and provide support if necessary."
 	department_head = list(JOB_CENTCOM)
 	faction = FACTION_STATION
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 4
+	spawn_positions = 4
 	supervisors = "Central Command"
 	minimal_player_age = 14
 	exp_requirements = 600
 	exp_required_type = EXP_TYPE_CREW
 	exp_required_type_department = EXP_TYPE_COMMAND
 	exp_granted_type = EXP_TYPE_CREW
-	config_tag = "CENTCOM_ADMIRAL"
+	config_tag = "CENTCOM_OFFICER"
 
 	department_for_prefs = /datum/job_department/captain
 
@@ -20,7 +20,7 @@
 		/datum/job_department/central_command
 	)
 
-	outfit = /datum/outfit/centcom/naval/admiral
+	outfit = /datum/outfit/centcom/naval/lieutenant
 
 	paycheck = PAYCHECK_COMMAND
 	paycheck_department = ACCOUNT_CMD
@@ -42,14 +42,14 @@
 	veteran_only = TRUE
 	job_flags = STATION_JOB_FLAGS | JOB_BOLD_SELECT_TEXT | JOB_CANNOT_OPEN_SLOTS
 /*
-/obj/effect/landmark/start/centcom_admiral
-	name = "CentCom Admiral"
-	icon_state = "admiral"
-	icon = 'modular_mint/centcom/icons/landmarks.dmi'
+/obj/effect/landmark/start/centcom_officer
+	name = "CentCom Officer"
+	icon_state = "officer"
+	icon = 'modularmint/centcom/icons/landmarks.dmi'
 
 	jobspawn_override = TRUE
 	delete_after_roundstart = FALSE
 
-/obj/effect/landmark/start/centcom_admiral/after_round_start()
+/obj/effect/landmark/start/centcom_officer/after_round_start()
 	return
 */
