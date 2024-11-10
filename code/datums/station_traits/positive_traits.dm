@@ -306,6 +306,10 @@
 		/datum/job/engineering_guard = /obj/item/organ/internal/cyberimp/arm/flash,
 		/datum/job/telecomms_specialist = /obj/item/organ/internal/ears/cybernetic/xray,
 		// NOVA EDIT END
+		// MINT EDIT ADDITION START
+		/datum/job/centcom_admiral = /obj/item/organ/internal/heart/cybernetic/tier3,
+		/datum/job/centcom_officer = /obj/item/organ/internal/heart/cybernetic/tier3,
+		// MINT EDIT END
 	)
 
 /datum/station_trait/cybernetic_revolution/New()
