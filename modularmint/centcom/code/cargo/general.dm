@@ -4,6 +4,7 @@
 // CentCom categories
 
 /datum/supply_pack/centcom
+	hidden = TRUE
 	iscentcom = TRUE
 	crate_type = /obj/structure/closet/crate/centcom
 

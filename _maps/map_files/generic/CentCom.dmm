@@ -901,9 +901,8 @@
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/briefing)
 "ea" = (
-/obj/item/flashlight/lamp,
-/obj/structure/table/reinforced,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/machinery/computer/centcom_announcement/centcom,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/control)
 "ec" = (
@@ -4443,10 +4442,10 @@
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/control)
 "uy" = (
-/obj/machinery/computer/prisoner/management{
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/machinery/computer/security{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/control)
 "uz" = (
@@ -4676,6 +4675,7 @@
 "vt" = (
 /obj/machinery/status_display/evac/directional/north,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/effect/landmark/start/centcom_officer,
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/control)
 "vu" = (
@@ -4831,6 +4831,9 @@
 	dir = 4
 	},
 /obj/machinery/light/directional/east,
+/obj/machinery/computer/cargo/express/centcom{
+	dir = 8
+	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/supply)
 "vZ" = (
@@ -5207,10 +5210,10 @@
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/admin/storage)
 "xD" = (
-/obj/machinery/computer/security{
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/machinery/computer/centcom_console{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/control)
 "xE" = (
@@ -6717,6 +6720,10 @@
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /turf/open/floor/iron/white,
 /area/centcom/central_command_areas/evacuation/ship)
+"Ew" = (
+/obj/effect/landmark/start/centcom_admiral,
+/turf/open/floor/iron/grimy,
+/area/centcom/central_command_areas/control)
 "Ex" = (
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/item/kirbyplants/organic/plant22,
@@ -8959,6 +8966,11 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron,
 /area/centcom/tdome/observation)
+"QS" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/effect/landmark/start/centcom_officer,
+/turf/open/floor/iron,
+/area/centcom/central_command_areas/control)
 "QT" = (
 /obj/structure/table/wood,
 /obj/structure/reagent_dispensers/beerkeg,
@@ -54262,11 +54274,11 @@ Ab
 iu
 ea
 oX
-km
+Ew
 km
 xD
 iu
-Ab
+QS
 Ab
 qT
 BE

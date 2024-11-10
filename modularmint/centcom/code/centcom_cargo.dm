@@ -65,11 +65,11 @@
 	packin_up()
 	return TRUE
 
-/obj/machinery/computer/cargo/express/centcom/packin_up() // oh shit, I'm sorry
+/obj/machinery/computer/cargo/express/packin_up() // oh shit, I'm sorry
 	meme_pack_data = list() // sorry for what?
 	for(var/pack in SSshuttle.supply_packs) // our quartermaster taught us not to be ashamed of our supply packs
-		var/datum/supply_pack/centcom/P = SSshuttle.supply_packs[pack]  // specially since they're such a good price and all
-		if(!meme_pack_data[P.group] && P.iscentcom) // yeah, I see that, your quartermaster gave you good advice
+		var/datum/supply_pack/P = SSshuttle.supply_packs[pack]  // specially since they're such a good price and all
+		if(!meme_pack_data[P.group] && !P.iscentcom) // MINT EDIT
 			meme_pack_data[P.group] = list( // it gets cheaper when I return it
 				"name" = P.group, // mmhm
 				"packs" = list()  // sometimes, I return it so much, I rip the manifest
@@ -78,14 +78,33 @@
 			continue// by using someone else's crate
 		if(P.contraband && !contraband) // will you show me?
 			continue // i'd be right happy to
-		if(!(P.iscentcom))
-			continue
 		meme_pack_data[P.group]["packs"] += list(list(
 			"name" = P.name,
 			"cost" = P.get_cost(),
 			"id" = pack,
 			"desc" = P.desc || P.name // If there is a description, use it. Otherwise use the pack's name.
 		))
+
+/obj/machinery/computer/cargo/express/centcom/packin_up() // oh shit, I'm sorry
+	meme_pack_data = list() // sorry for what?
+	for(var/pack in SSshuttle.supply_packs) // our quartermaster taught us not to be ashamed of our supply packs
+		var/datum/supply_pack/P = SSshuttle.supply_packs[pack]  // specially since they're such a good price and all
+		if(!meme_pack_data[P.group] && P.iscentcom) // MINT EDIT
+			meme_pack_data[P.group] = list( // it gets cheaper when I return it
+				"name" = P.group, // mmhm
+				"packs" = list()  // sometimes, I return it so much, I rip the manifest
+			) // see, my quartermaster taught me a few things too
+		if(((P.hidden) || (P.special)) && !P.iscentcom) // like, how not to rip the manifest
+			continue// by using someone else's crate
+		if(P.contraband && !contraband) // will you show me?
+			continue // i'd be right happy to
+		if(P.iscentcom)
+			meme_pack_data[P.group]["packs"] += list(list(
+				"name" = P.name,
+				"cost" = P.get_cost(),
+				"id" = pack,
+				"desc" = P.desc || P.name // If there is a description, use it. Otherwise use the pack's name.
+			))
 
 /obj/machinery/computer/cargo/express/centcom/ui_data(mob/user)
 	var/canBeacon = beacon && (isturf(beacon.loc) || ismob(beacon.loc))//is the beacon in a valid location?
