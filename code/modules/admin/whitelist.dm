@@ -91,8 +91,8 @@ MintStation EDIT END -  DISCORD WHITELIST */
 				return
 
 			var/datum/db_query/query_add_whitelist = SSdbcore.NewQuery({"
-				INSERT INTO [format_table_name("whitelist")] (ckey)
-				VALUES (:ckey)
+				INSERT INTO [format_table_name("whitelist")] (ckey, add_date)
+				VALUES (:ckey, NOW())
 			"}, list("ckey" = key))
 			if(!query_add_whitelist.Execute())
 				. += "Failed to add ckey `[key]`\n"
