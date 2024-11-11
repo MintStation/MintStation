@@ -1,19 +1,19 @@
-
 --
 -- Table structure for table `whitelist`.
 --
 DROP TABLE IF EXISTS `whitelist`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET @saved_cs_client = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `whitelist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `ckey` varchar(32) NOT NULL,
-	`manager` VARCHAR(32) NOT NULL,
-	`manager_id` VARCHAR(32) NOT NULL,
+  `manager` VARCHAR(32) NOT NULL,
+  `manager_id` VARCHAR(32) NOT NULL,
   `date_added` datetime NOT NULL DEFAULT current_timestamp(),
   `last_modified` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`ckey`)
+  PRIMARY KEY (`id`, `ckey`),
+  UNIQUE KEY `unique_ckey` (`ckey`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
