@@ -177,16 +177,18 @@ MintStation EDIT END -  DISCORD WHITELIST */
 				qdel(query_get_logs)
 				return
 
+			. += "```\n"  // Start block for code output
 			. += "Whitelist Log (last 50 entries):\n"
 			. += "ckey\tmanager\tmanager_id\taction\tdate\n"
 			while(query_get_logs.NextRow())
-				var/ckey = query_get_logs.item["ckey"]
-				var/manager = query_get_logs.item["manager"]
-				var/manager_id = query_get_logs.item["manager_id"]
-				var/action = query_get_logs.item["action"]
-				var/date = query_get_logs.item["date"]
+				var/ckey = query_get_logs.item["1"] // First column (ckey)
+				var/manager = query_get_logs.item["2"] // Second column (manager)
+				var/manager_id = query_get_logs.item["3"] // Third column (manager_id)
+				var/action = query_get_logs.item["4"] // Fourth column (action)
+				var/date = query_get_logs.item["5"] // Fifth column (date)
 				. += "[ckey]\t[manager]\t[manager_id]\t[action]\t[date]\n"
 
+			. += "```\n"  // End block for code output
 			qdel(query_get_logs)
 			return
 
