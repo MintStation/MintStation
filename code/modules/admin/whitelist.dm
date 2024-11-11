@@ -85,9 +85,9 @@ MintStation EDIT END -  DISCORD WHITELIST */
 
 				var/datum/db_query/query_update_whitelist = SSdbcore.NewQuery({"
 					UPDATE [format_table_name("whitelist")]
-					SET deleted = 0
+					SET deleted = 0, manager = :manager, manager_id = :manager_id
 					WHERE ckey = :ckey
-				"}, list("ckey" = key))
+				"}, list("ckey" = key, "manager" = sender.friendly_name, "manager_id" = sender.id))
 
 				if(!query_update_whitelist.Execute())
 					. += "Failed to update ckey `[key]`\n"
@@ -108,9 +108,9 @@ MintStation EDIT END -  DISCORD WHITELIST */
 				return
 
 			var/datum/db_query/query_add_whitelist = SSdbcore.NewQuery({"
-				INSERT INTO [format_table_name("whitelist")] (ckey, add_date)
-				VALUES (:ckey, NOW())
-			"}, list("ckey" = key))
+				INSERT INTO [format_table_name("whitelist")] (ckey, manager, manager_id)
+				VALUES (:ckey, :manager, :manager_id)
+			"}, list("ckey" = key, "manager" = sender.friendly_name, "manager_id" = sender.id))
 
 			if(!query_add_whitelist.Execute())
 				. += "Failed to add ckey `[key]`\n"
@@ -132,9 +132,9 @@ MintStation EDIT END -  DISCORD WHITELIST */
 
 			var/datum/db_query/query_remove_whitelist = SSdbcore.NewQuery({"
 				UPDATE [format_table_name("whitelist")]
-				SET deleted = 1
+				SET deleted = 1, manager = :manager, manager_id = :manager_id
 				WHERE ckey = :ckey
-			"}, list("ckey" = key))
+			"}, list("ckey" = key, "manager" = sender.friendly_name, "manager_id" = sender.id))
 
 			if(!query_remove_whitelist.Execute())
 				. += "Failed to remove ckey `[key]`"
@@ -148,7 +148,7 @@ MintStation EDIT END -  DISCORD WHITELIST */
 			return
 
 		if("list")
-			var/datum/db_query/query_get_all_whitelist = SSdbcore.NewQuery("SELECT ckey FROM [format_table_name("whitelist")]")
+			var/datum/db_query/query_get_all_whitelist = SSdbcore.NewQuery("SELECT ckey FROM [format_table_name("whitelist")] WHERE deleted = 0")
 
 			if(!query_get_all_whitelist.Execute())
 				. += "Failed to get all whitelisted keys\n"
@@ -166,7 +166,7 @@ MintStation EDIT END -  DISCORD WHITELIST */
 		if("logs")
 			// Retrieving the last 50 entries from the whitelist_log table, sorted by date
 			var/datum/db_query/query_get_logs = SSdbcore.NewQuery({"
-				SELECT ckey, action, date FROM [format_table_name("whitelist_log")]
+				SELECT ckey, manager, manager_id, action, date FROM [format_table_name("whitelist_log")]
 				ORDER BY date DESC
 				LIMIT 50
 			"})
@@ -178,11 +178,14 @@ MintStation EDIT END -  DISCORD WHITELIST */
 				return
 
 			. += "Whitelist Log (last 50 entries):\n"
+			. += "ckey\tmanager\tmanager_id\taction\tdate\n"
 			while(query_get_logs.NextRow())
-				var/ckey = query_get_logs.item[1]
-				var/action = query_get_logs.item[2]
-				var/date = query_get_logs.item[3]
-				. += "[ckey]\t[action]\t[date]\n"
+				var/ckey = query_get_logs.item["ckey"]
+				var/manager = query_get_logs.item["manager"]
+				var/manager_id = query_get_logs.item["manager_id"]
+				var/action = query_get_logs.item["action"]
+				var/date = query_get_logs.item["date"]
+				. += "[ckey]\t[manager]\t[manager_id]\t[action]\t[date]\n"
 
 			qdel(query_get_logs)
 			return
