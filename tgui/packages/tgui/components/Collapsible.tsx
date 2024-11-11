@@ -14,12 +14,12 @@ type Props = Partial<{
   open: boolean;
   title: ReactNode;
   icon: string;
-  disabled: boolean;// MintStation EDIT -  BETTER ADMIN UI
+  disabled: boolean; // MintStation EDIT -  BETTER ADMIN UI
 }> &
   BoxProps;
 
 export function Collapsible(props: Props) {
-  const { children, color, title, buttons, icon, disabled, ...rest } = props; //MintStation EDIT  -  BETTER ADMIN UI
+  const { children, color, title, buttons, icon, disabled, ...rest } = props; // MintStation EDIT  -  BETTER ADMIN UI
   const [open, setOpen] = useState(props.open);
 
   return (
@@ -30,7 +30,7 @@ export function Collapsible(props: Props) {
             fluid
             color={color}
             icon={icon ? icon : open ? 'chevron-down' : 'chevron-right'}
-            disabled={disabled} //MintStation EDIT  -  BETTER ADMIN UI
+            disabled={disabled} // MintStation EDIT  -  BETTER ADMIN UI
             onClick={() => setOpen(!open)}
             {...rest}
           >
