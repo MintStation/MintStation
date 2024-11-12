@@ -206,7 +206,7 @@ MintStation EDIT END -  DISCORD WHITELIST */
 // MintStation EDIT END || DISCORD WHITELIST
 
 /proc/pad_string(str, width)
-    var/padded_str = "[str]"
-    while(length(padded_str) < width)
-        padded_str += " "
-    return padded_str
+	var/padded_str = "[str]"
+	while(length(padded_str) < width)
+		padded_str += " "
+	return padded_str
