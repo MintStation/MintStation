@@ -373,15 +373,17 @@
 
 /obj/machinery/door/airlock/multi_tile
 	icon = 'modularmint/aesthetics/airlock/icons/airlocks/multi_tile/glass.dmi'
-	overlays_file = 'modularmint/aesthetics/airlock/icons/airlocks/multi_tile/glass_overlays.dmi'
+	overlays_file = 'modularmint/aesthetics/airlock/icons/airlocks/multi_tile/overlays.dmi'
 
 /obj/machinery/door/airlock/multi_tile/glass
 	icon = 'modularmint/aesthetics/airlock/icons/airlocks/multi_tile/glass.dmi'
-	overlays_file = 'modularmint/aesthetics/airlock/icons/airlocks/multi_tile/glass_overlays.dmi'
 
 /obj/machinery/door/airlock/multi_tile/metal
 	icon = 'modularmint/aesthetics/airlock/icons/airlocks/multi_tile/metal.dmi'
-	overlays_file = 'modularmint/aesthetics/airlock/icons/airlocks/multi_tile/metal_overlays.dmi'
+
+/obj/structure/door_assembly/multi_tile
+	icon = 'modularmint/aesthetics/airlock/icons/airlocks/multi_tile/glass.dmi'
+	overlays_file = 'modularmint/aesthetics/airlock/icons/airlocks/multi_tile/overlays.dmi'
 
 //TRAM
 
