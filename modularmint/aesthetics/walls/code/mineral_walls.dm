@@ -39,3 +39,10 @@
 
 /turf/closed/indestructible/riveted
 	icon = 'modularmint/aesthetics/walls/icons/material/riveted.dmi'
+
+/turf/closed/wall/mineral/titanium
+	icon = 'modularmint/aesthetics/walls/icons/material/plastinum_wall.dmi'
+	base_icon_state = "plastinum_wall"
+
+/turf/closed/wall/mineral/titanium/nodiagonal
+	icon = 'modularmint/aesthetics/walls/icons/material/plastinum_wall.dmi'

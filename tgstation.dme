@@ -8739,6 +8739,7 @@
 #include "modular_nova\modules\xenoarchartifacts\obj\wave_scanner.dm"
 #include "modularmint\aesthetics\airlock\code\airlock.dm"
 #include "modularmint\aesthetics\structures\code\girder.dm"
+#include "modularmint\aesthetics\structures\code\grille.dm"
 #include "modularmint\aesthetics\walls\code\mineral_walls.dm"
 #include "modularmint\aesthetics\walls\code\walls.dm"
 #include "modularmint\aesthetics\windows\code\windows.dm"
