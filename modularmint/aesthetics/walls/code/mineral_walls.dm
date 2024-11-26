@@ -59,3 +59,8 @@
 	icon = 'modularmint/aesthetics/walls/icons/material/plastinum_wall.dmi'
 	icon_state = "plastinum_wall-0"
 	base_icon_state = "plastinum_wall"
+
+/turf/closed/indestructible/reinforced/titanium/nodiagonal
+	icon = 'modularmint/aesthetics/walls/icons/material/plastinum_wall.dmi'
+	icon_state = "map-shuttle_nd"
+	base_icon_state = "plastinum_wall"
