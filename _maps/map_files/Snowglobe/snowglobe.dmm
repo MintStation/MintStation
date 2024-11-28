@@ -9956,6 +9956,7 @@
 /area/station/science/genetics)
 "cGs" = (
 /obj/vehicle/ridden/secway,
+/obj/item/key/security,
 /turf/open/floor/iron/recharge_floor,
 /area/station/ai_monitored/security/armory)
 "cGu" = (
@@ -45032,10 +45033,6 @@
 	dir = 8
 	},
 /area/station/command/secure_bunker)
-"mai" = (
-/obj/structure/reagent_dispensers/wall/peppertank/directional/east,
-/turf/closed/wall/r_wall,
-/area/station/security/interrogation)
 "mav" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 1
@@ -53704,6 +53701,10 @@
 	pixel_x = 9;
 	pixel_y = -7
 	},
+/obj/item/toy/crayon/spraycan/roboticist{
+	pixel_x = -11;
+	pixel_y = 8
+	},
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 4
 	},
@@ -57855,6 +57856,7 @@
 /obj/effect/turf_decal/trimline/white/line{
 	dir = 8
 	},
+/obj/structure/reagent_dispensers/wall/peppertank/directional/west,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 8
 	},
@@ -245043,7 +245045,7 @@ bTu
 bTu
 bTu
 bTu
-mai
+bTu
 bmd
 ayV
 bsm
