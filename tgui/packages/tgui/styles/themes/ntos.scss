@@ -22,6 +22,7 @@ $nanotrasen: #384e68;
     '../components/Button.scss',
     $with: (
       'color-default': $nanotrasen,
+	    'color-selected': #3a30c7,
       'color-transparent-text': rgba(227, 240, 255, 0.75)
     )
   );
