@@ -8785,4 +8785,6 @@
 #include "modularmint\modules\admin\mob\mob.dm"
 #include "modularmint\modules\admin\mob\mob_defines.dm"
 #include "modularmint\modules\admin\preferences\player_panel.dm"
+#include "modularmint\modules\jukebox\dance_machine.dm"
+#include "modularmint\modules\jukebox\jukebox.dm"
 // END_INCLUDE
