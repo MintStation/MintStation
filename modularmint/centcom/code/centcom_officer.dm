@@ -1,11 +1,14 @@
+/datum/outfit/centcom/mint_centcom/officer
+/datum/job/mint_centcom/officer
+
 /datum/job/centcom_officer
 	title = JOB_CCNT_OFFICER
-	description = "They're elite officers of NanoTrasen that works in Central Command. They should work with requests from station and provide support if necessary."
+	description = "Elite NanoTrasen officers that work in Central Command. They should work with requests from the station and provide support if necessary."
 	department_head = list(JOB_CENTCOM)
 	faction = FACTION_STATION
 	total_positions = 4
 	spawn_positions = 4
-	supervisors = "Central Command"
+	supervisors = "Central Command Admiral"
 	minimal_player_age = 14
 	exp_requirements = 600
 	exp_required_type = EXP_TYPE_CREW
@@ -20,7 +23,7 @@
 		/datum/job_department/central_command
 	)
 
-	outfit = /datum/outfit/centcom/naval/lieutenant
+	outfit = /datum/outfit/job/mint_centcom/centcom_officer
 
 	paycheck = PAYCHECK_COMMAND
 	paycheck_department = ACCOUNT_CMD
@@ -40,7 +43,22 @@
 	banned_augments = list(HEAD_RESTRICTED_AUGMENTS)
 
 	veteran_only = TRUE
+	allow_bureaucratic_error = FALSE
+	req_admin_notify = TRUE
 	job_flags = STATION_JOB_FLAGS | JOB_BOLD_SELECT_TEXT | JOB_CANNOT_OPEN_SLOTS
+
+
+/datum/outfit/job/mint_centcom/centcom_officer //MINT EDIT: START
+	name = "Central Command Officer"
+	jobtype = /datum/job/mint_centcom/centcom_officer
+	id_trim = /datum/id_trim/centcom/official
+	head = /obj/item/clothing/head/hats/centcom_cap
+	suit = /obj/item/clothing/suit/armor/vest/capcarapace/naval
+	uniform = /obj/item/clothing/under/rank/centcom/nova/naval/commander
+	gloves = /obj/item/clothing/gloves/combat
+	//MINT EDIT: END
+
+
 /*
 /obj/effect/landmark/start/centcom_officer
 	name = "CentCom Officer"

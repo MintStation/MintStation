@@ -77,7 +77,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	return
 
 // MINT EDIT: START
-/obj/effect/landmark/start/centcom_admiral
+/obj/effect/landmark/start/mint_centcom/admiral
 	name = "CentCom Admiral"
 	icon_state = "admiral"
 	icon = 'modularmint/centcom/icons/landmarks.dmi'
@@ -85,7 +85,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	jobspawn_override = TRUE
 	delete_after_roundstart = FALSE
 
-/obj/effect/landmark/start/centcom_admiral/after_round_start()
+/obj/effect/landmark/start/mint_centcom/admiral/after_round_start()
 	return
 
 /obj/effect/landmark/start/centcom_officer
