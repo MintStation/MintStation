@@ -28,7 +28,7 @@
 
 /obj/machinery/computer/centcom_console
 	name = "CentCom management console"
-	desc = "A console used for management of any actibity on the station."
+	desc = "A console used for management of any activity on the station."
 	req_access = list(ACCESS_CENT_GENERAL)
 	icon_screen = "comm"
 	icon_keyboard = "tech_key"

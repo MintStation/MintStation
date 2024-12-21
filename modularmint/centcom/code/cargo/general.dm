@@ -9,19 +9,19 @@
 	crate_type = /obj/structure/closet/crate/centcom
 
 /datum/supply_pack/centcom/general
-	group = "Miscellaneous Supplies"
+	group = "General"
 
 /datum/supply_pack/centcom/weapon
-	group = "Security"
+	group = "Weaponry"
 
 /datum/supply_pack/centcom/armor
 	group = "Armory"
 
 /datum/supply_pack/centcom/limited
-	group = "Imports"
+	group = "Limited"
 
 /datum/supply_pack/centcom/spare
-        group = "Spare equipment"
+   	group = "Spare equipment"
 
 // CentCom General
 
@@ -33,11 +33,11 @@
 
 // CentCom Weaponry
 
-/datum/supply_pack/centcom/weapon/sabre
-        name = "Officer's sabre"
-        desc = "An elegant weapon, its monomolecular edge is capable of cutting through flesh and bone with ease."
-        cost = 10000
-        contains = list(/obj/item/melee/sabre)
+/datum/supply_pack/centcom/weapon/esword
+    name = "Energy sword"
+    desc = "An easily concealable, lightweight energy sword."
+    cost = 10000
+    contains = list(/obj/item/melee/energy)
 
 /datum/supply_pack/centcom/weapon/pulse_rifle
 	name = "Pulse rifle"
@@ -58,7 +58,6 @@
 	desc = "A high-speed rescue suit by Nanotrasen, intended for its emergency response teams."
 	cost = 30000
 	contains = list(/obj/item/mod/control/pre_equipped/responsory)
-
 
 // CentCom Limited
 
