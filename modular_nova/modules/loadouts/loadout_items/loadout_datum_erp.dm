@@ -119,9 +119,11 @@
 	name = "Tickling Feather"
 	item_path = /obj/item/tickle_feather
 
+/*  MINT REMOVAL
 /datum/loadout_item/erp/borg_dom
 	name = "Borg Dominatrix Module"
 	item_path = /obj/item/borg/upgrade/dominatrixmodule
+*/
 
 /datum/loadout_item/erp/holosign
 	name = "Personal Holosign Projector"
