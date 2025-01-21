@@ -67,3 +67,19 @@
 
 /obj/structure/falsewall/plastitanium
 	icon = 'modularmint/aesthetics/walls/icons/material/false_walls.dmi'
+
+
+/obj/structure/alien/resin/wall
+	icon = 'modularmint/aesthetics/walls/icons/resin_wall.dmi'
+
+/turf/closed/indestructible/resin/membrane
+	icon = 'modularmint/aesthetics/walls/icons/resin_membrane.dmi'
+
+/obj/structure/alien/resin/membrane
+	icon = 'modularmint/aesthetics/walls/icons/resin_membrane.dmi'
+
+/obj/structure/mold/structure/wall
+	icon = 'modularmint/aesthetics/walls/icons/resin_wall.dmi'
+
+/turf/closed/indestructible/resin
+	icon = 'modularmint/aesthetics/walls/icons/resin_wall.dmi'
