@@ -11,7 +11,7 @@
 	name = "Central Command Officer"
 	jobtype = /datum/job/mint_centcom/officer
 	id = /obj/item/card/id/advanced/centcom
-	id_trim = /datum/id_trim/job/nanotrasen_consultant
+	id_trim = /datum/id_trim/job/nanotrasen_consultant/officer
 	belt = /obj/item/modular_computer/pda/nanotrasen_consultant
 	head = /obj/item/clothing/head/hats/centcom_cap
 	suit = /obj/item/clothing/suit/armor/vest/capcarapace/naval
