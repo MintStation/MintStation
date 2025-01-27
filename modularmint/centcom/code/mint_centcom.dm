@@ -51,12 +51,8 @@
 	job = /datum/job/mint_centcom/admiral
 
 /datum/id_trim/job/nanotrasen_consultant/admiral/New()
-	minimal_access |= list(JOB_CENTCOM_ADMIRAL)
-	. = ..()
+	minimal_access += ACCESS_CENT_CAPTAIN
+	return ..()
 
 /datum/id_trim/job/nanotrasen_consultant/officer
 	job = /datum/job/mint_centcom/officer
-
-/datum/id_trim/job/nanotrasen_consultant/officer/New()
-	minimal_access |= list(JOB_CENTCOM_OFFICIAL)
-	. = ..()
