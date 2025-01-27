@@ -309,7 +309,7 @@
 		// NOVA EDIT END
 		// MINT EDIT ADDITION START
 		/datum/job/mint_centcom/admiral = /obj/item/organ/heart/cybernetic/tier3,
-		/datum/job/mint_centcom/centcom_officer = /obj/item/organ/heart/cybernetic/tier3,
+		/datum/job/mint_centcom/officer = /obj/item/organ/heart/cybernetic/tier3,
 		// MINT EDIT END
 	)
 

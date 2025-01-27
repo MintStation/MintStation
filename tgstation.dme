@@ -8810,6 +8810,7 @@
 #include "modularmint\centcom\code\centcom_console.dm"
 #include "modularmint\centcom\code\centcom_ert.dm"
 #include "modularmint\centcom\code\centcom_officer.dm"
+#include "modularmint\centcom\code\mint_centcom.dm"
 #include "modularmint\centcom\code\cargo\general.dm"
 #include "modularmint\modules\admin\client_procs.dm"
 #include "modularmint\modules\admin\player_panel.dm"
