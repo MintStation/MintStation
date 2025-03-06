@@ -92,6 +92,8 @@ const ALTTITLES = {
   Artist: BASEICONS['Assistant'],
   'Off-Duty Staff': BASEICONS['Assistant'],
   'Off-Duty Crew': BASEICONS['Assistant'],
+  Visitor: BASEICONS['Assistant'],
+  Traveler: BASEICONS['Assistant'],
   // Atmospheric Technician - fan
   'Life Support Technician': BASEICONS['Atmospheric Technician'],
   'Emergency Fire Technician': BASEICONS['Atmospheric Technician'],
@@ -203,6 +205,7 @@ const ALTTITLES = {
   'General Practitioner': BASEICONS['Medical Doctor'],
   'Medical Resident': BASEICONS['Medical Doctor'],
   Physician: BASEICONS['Medical Doctor'],
+  'Registered Nurse': BASEICONS['Medical Doctor'],
   // Mime - comment-slash
   Pantomimist: BASEICONS['Mime'],
   // Nanotrasen Consultant - clipboard-check
@@ -210,6 +213,7 @@ const ALTTITLES = {
   // Paramedic - truck-medical
   'Emergency Medical Technician': BASEICONS['Paramedic'],
   'Search and Rescue Technician': BASEICONS['Paramedic'],
+  'Emergency Medical Responder': BASEICONS['Paramedic'],
   // Prisoner - lock
   'Minimum Security Prisoner': BASEICONS['Prisoner'],
   'Maximum Security Prisoner': BASEICONS['Prisoner'],
@@ -235,6 +239,7 @@ const ALTTITLES = {
   'Biorobotics Director': BASEICONS['Research Director'],
   'Research Supervisor': BASEICONS['Research Director'],
   'Chief Science Officer': BASEICONS['Research Director'],
+  'Director of Science': BASEICONS['Research Director'],
   // Roboticist - battery-half
   'Biomechanical Engineer': BASEICONS['Roboticist'],
   'Mechatronic Engineer': BASEICONS['Roboticist'],
@@ -260,6 +265,7 @@ const ALTTITLES = {
   'Security Operative': BASEICONS['Security Officer'],
   Peacekeeper: BASEICONS['Security Officer'],
   'Security Cadet': BASEICONS['Security Officer'],
+  'Security Specialist': BASEICONS['Security Officer'],
   // Shaft Miner - digging
   'Union Miner': BASEICONS['Shaft Miner'],
   Excavator: BASEICONS['Shaft Miner'],
@@ -274,6 +280,7 @@ const ALTTITLES = {
   Mechanic: BASEICONS['Station Engineer'],
   'Apprentice Engineer': BASEICONS['Station Engineer'],
   'Engineering Trainee': BASEICONS['Station Engineer'],
+  'Nuclear Engineer': BASEICONS['Station Engineer'],
   // Telecomms Specialist - tower-cell
   'Network Engineer': BASEICONS['Telecomms Specialist'],
   'Wireless Operator': BASEICONS['Telecomms Specialist'],

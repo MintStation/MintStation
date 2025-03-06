@@ -4,6 +4,7 @@
 	weak_against_armour = TRUE
 	icon = 'icons/obj/debris.dmi'
 	icon_state = "large"
+	icon_angle = -45
 	w_class = WEIGHT_CLASS_TINY
 	item_flags = DROPDEL
 	sharpness = SHARP_EDGED
@@ -19,6 +20,13 @@
 	icon_state = "s-casing"
 	embed_type = null
 
+/obj/item/shrapnel/plastic
+	name = "plastic shard"
+	custom_materials = list(/datum/material/plastic = SMALL_MATERIAL_AMOUNT * 0.5)
+	icon_state = "titaniummedium"
+	sharpness = SHARP_EDGED
+	embed_type = /datum/embedding/shrapnel
+
 /obj/projectile/bullet/shrapnel
 	name = "flying shrapnel shard"
 	damage = 14
@@ -33,9 +41,9 @@
 	ignore_range_hit_prone_targets = TRUE
 	sharpness = SHARP_EDGED
 	wound_bonus = 30
-	embed_type = /datum/embed_data/shrapnel
+	embed_type = /datum/embedding/shrapnel
 
-/datum/embed_data/shrapnel
+/datum/embedding/shrapnel
 	embed_chance = 70
 	ignore_throwspeed_threshold = TRUE
 	fall_chance = 1
@@ -74,9 +82,9 @@
 	ricochet_incidence_leeway = 0
 	embed_falloff_tile = -2
 	shrapnel_type = /obj/item/shrapnel/stingball
-	embed_type = /datum/embed_data/stingball
+	embed_type = /datum/embedding/stingball
 
-/datum/embed_data/stingball
+/datum/embedding/stingball
 	embed_chance = 55
 	fall_chance = 2
 	jostle_chance = 7
@@ -106,11 +114,11 @@
 	ricochets_max = 2
 	ricochet_chance = 140
 	shrapnel_type = /obj/item/shrapnel/capmine
-	embed_type = /datum/embed_data/capmine
+	embed_type = /datum/embedding/capmine
 	wound_falloff_tile = 0
 	embed_falloff_tile = 0
 
-/datum/embed_data/capmine
+/datum/embedding/capmine
 	embed_chance = 90
 	fall_chance = 3
 	jostle_chance = 7

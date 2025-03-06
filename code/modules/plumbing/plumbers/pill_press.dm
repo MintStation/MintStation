@@ -68,7 +68,7 @@
 
 /obj/machinery/plumbing/pill_press/examine(mob/user)
 	. = ..()
-	. += span_notice("The [name] currently has [stored_products.len] stored. There needs to be less than [MAX_FLOOR_PRODUCTS] on the floor to continue dispensing.")
+	. += span_notice("\The [src] currently has [stored_products.len] stored. There needs to be less than [MAX_FLOOR_PRODUCTS] on the floor to continue dispensing.")
 
 /obj/machinery/plumbing/pill_press/process(seconds_per_tick)
 	if(!is_operational)
@@ -187,6 +187,10 @@
 				packaging_category = CAT_PATCHES
 			else if(ispath(packaging_type, /obj/item/reagent_containers/pill))
 				packaging_category = CAT_PILLS
+			// NOVA EDIT ADDITION START
+			else if(ispath(packaging_type, /obj/item/reagent_containers/cup/vial))
+				packaging_category = CAT_HYPOS
+			// NOVA EDIT ADDITION END
 			else
 				packaging_category = "Bottles"
 

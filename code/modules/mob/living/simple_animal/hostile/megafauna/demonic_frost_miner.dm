@@ -140,12 +140,12 @@ Difficulty: Extremely Hard
 	adjustHealth(-maxHealth)
 	enraged = TRUE
 	enraging = TRUE
-	animate(src, pixel_y = pixel_y + 96, time = 100, easing = ELASTIC_EASING)
+	animate(src, pixel_z = 96, time = 100, easing = ELASTIC_EASING, flags = ANIMATION_RELATIVE)
 	spin(100, 10)
 	SLEEP_CHECK_DEATH(60, src)
 	playsound(src, 'sound/effects/explosion/explosion3.ogg', 100, TRUE)
 	icon_state = "demonic_miner_phase2"
-	animate(src, pixel_y = pixel_y - 96, time = 8, flags = ANIMATION_END_NOW)
+	animate(src, pixel_z = -96, time = 8, flags = ANIMATION_END_NOW, flags = ANIMATION_RELATIVE)
 	spin(8, 2)
 	for(var/obj/structure/frost_miner_prism/prism_to_set in GLOB.frost_miner_prisms)
 		prism_to_set.set_prism_light(LIGHT_COLOR_PURPLE, 5)
@@ -320,18 +320,6 @@ Difficulty: Extremely Hard
 	var/turf/T = get_turf(target)
 	mineral_scan_pulse(T, world.view + 1, src)
 	. = ..()
-
-/obj/item/crusher_trophy/ice_block_talisman
-	name = "ice block talisman"
-	desc = "A glowing trinket that a demonic miner had on him, it seems he couldn't utilize it for whatever reason."
-	icon_state = "ice_trap_talisman"
-	denied_type = /obj/item/crusher_trophy/ice_block_talisman
-
-/obj/item/crusher_trophy/ice_block_talisman/effect_desc()
-	return "mark detonation to freeze a creature in a block of ice for a period, preventing them from moving"
-
-/obj/item/crusher_trophy/ice_block_talisman/on_mark_detonation(mob/living/target, mob/living/user)
-	target.apply_status_effect(/datum/status_effect/ice_block_talisman)
 
 /datum/status_effect/ice_block_talisman
 	id = "ice_block_talisman"
