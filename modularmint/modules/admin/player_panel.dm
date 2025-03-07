@@ -40,7 +40,7 @@ GLOBAL_LIST_INIT(pp_limbs, list(
 		ui.open()
 
 /datum/player_panel/ui_state(mob/user)
-	return GLOB.admin_state
+	return ADMIN_STATE(R_ADMIN)
 
 /datum/player_panel/ui_data(mob/user)
 	. = list()

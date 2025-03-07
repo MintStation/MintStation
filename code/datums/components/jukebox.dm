@@ -1,3 +1,5 @@
+//	MINTSTATION EDIT - see in /modularmint/modules/jukebox/jukebox.dm
+/*
 // Reasons for appling STATUS_MUTE to a mob's sound status
 /// The mob is deaf
 #define MUTE_DEAF (1<<0)

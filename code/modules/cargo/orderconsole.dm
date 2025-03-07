@@ -152,9 +152,6 @@
 	var/list/data = list()
 	data["max_order"] = CARGO_MAX_ORDER
 	data["supplies"] = list()
-		if(!data["supplies"][pack.group] && !(P.iscentcom)) // MINT EDIT
-				"packs" = get_packs_data(pack.group),
-            )
 
 	for(var/pack_id in SSshuttle.supply_packs)
 		var/datum/supply_pack/pack = SSshuttle.supply_packs[pack_id]
@@ -162,6 +159,7 @@
 			data["supplies"][pack.group] = list(
 				"name" = pack.group,
 				"packs" = get_packs_data(pack.group),
+			)
 
 	return data
 

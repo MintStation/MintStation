@@ -644,10 +644,6 @@
 /obj/structure/sign/poster/random/directional/east,
 /turf/open/floor/iron/smooth_large,
 /area/centcom/central_command_areas/evacuation/ship)
-"cU" = (
-/obj/structure/sign/poster/greenscreen/directional/south,
-/turf/open/floor/greenscreen,
-/area/centcom/tdome/administration)
 "cV" = (
 /obj/effect/landmark/thunderdome/one,
 /obj/effect/turf_decal/stripes/line{
@@ -2226,10 +2222,6 @@
 /obj/structure/closet/wardrobe/cargotech,
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/supply)
-"jR" = (
-/obj/structure/chair/stool/directional/south,
-/turf/open/floor/iron/grimy,
-/area/centcom/tdome/administration)
 "jU" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/computer,
@@ -3743,11 +3735,6 @@
 	},
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/ferry)
-"ro" = (
-/obj/machinery/newscaster/directional/north,
-/obj/structure/chair,
-/turf/open/floor/iron/grimy,
-/area/centcom/tdome/administration)
 "rq" = (
 /obj/machinery/light/floor,
 /obj/effect/turf_decal/tile/dark_blue/fourcorners,
@@ -5104,13 +5091,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/evacuation/ship)
-"wW" = (
-/obj/structure/sign/flag/nanotrasen/directional/west,
-/obj/effect/turf_decal/siding/dark{
-	dir = 1
-	},
-/turf/open/floor/greenscreen,
-/area/centcom/tdome/administration)
 "wX" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
 	dir = 8
@@ -6833,14 +6813,6 @@
 /obj/effect/light_emitter/podbay,
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/supplypod/loading/one)
-"ER" = (
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/obj/machinery/door/airlock/centcom{
-	name = "Sound Stage"
-	},
-/obj/machinery/door/firedoor,
-/turf/open/floor/iron/dark,
-/area/centcom/tdome/administration)
 "EV" = (
 /obj/structure/table/wood,
 /obj/machinery/microwave{
@@ -6944,12 +6916,6 @@
 /obj/machinery/status_display/evac/directional/west,
 /turf/open/floor/iron/grimy,
 /area/centcom/central_command_areas/courtroom)
-"Fy" = (
-/obj/machinery/greenscreen_camera{
-	name = "centcom-caster"
-	},
-/turf/open/floor/iron/grimy,
-/area/centcom/tdome/administration)
 "Fz" = (
 /obj/item/kirbyplants/organic/plant22,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
@@ -7067,12 +7033,6 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron,
 /area/centcom/central_command_areas/admin/storage)
-"Gy" = (
-/obj/effect/turf_decal/siding/dark{
-	dir = 1
-	},
-/turf/open/floor/greenscreen,
-/area/centcom/tdome/administration)
 "GB" = (
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/effect/turf_decal/stripes/line,
@@ -9205,12 +9165,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/centcom/central_command_areas/control)
-"RA" = (
-/obj/machinery/status_display/evac/directional/north,
-/obj/machinery/light/cold/directional/north,
-/obj/structure/chair,
-/turf/open/floor/iron/grimy,
-/area/centcom/tdome/administration)
 "RB" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -9892,13 +9846,6 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/centcom/central_command_areas/admin)
-"UU" = (
-/obj/structure/sign/flag/nanotrasen/directional/east,
-/obj/effect/turf_decal/siding/dark{
-	dir = 1
-	},
-/turf/open/floor/greenscreen,
-/area/centcom/tdome/administration)
 "UV" = (
 /obj/structure/table/wood,
 /obj/item/folder/red,
@@ -9962,7 +9909,7 @@
 /area/centcom/central_command_areas/armory)
 "Vh" = (
 /obj/structure/table/reinforced,
-/obj/effect/spawner/surgery_tray/full{
+/obj/item/surgery_tray/full{
 	pixel_y = 10;
 	pixel_x = 2
 	},
@@ -57712,9 +57659,9 @@ Sz
 uf
 uf
 uf
-uf
-uf
-uf
+aa
+aa
+aa
 aa
 aa
 aa
@@ -57967,11 +57914,11 @@ uf
 Mv
 Mv
 uf
-Kg
-Xw
-wW
-cU
-uf
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -58224,11 +58171,11 @@ Sz
 Sz
 Sz
 uf
-RA
-Xw
-Gy
-cU
-uf
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -58480,12 +58427,12 @@ Sz
 Sz
 Sz
 Sz
-ER
-Xw
-Fy
-Gy
-cU
 uf
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -58738,11 +58685,11 @@ Sz
 uf
 gh
 uf
-RA
-jR
-Gy
-cU
-uf
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -58995,11 +58942,11 @@ Sz
 uf
 Sz
 uf
-ro
-Xw
-UU
-cU
-uf
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -59252,11 +59199,11 @@ Wn
 uf
 Sz
 uf
-uf
-uf
-uf
-uf
-uf
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -62294,7 +62241,7 @@ xt
 xt
 xt
 xt
-PG
+xt
 xt
 Vd
 zm
@@ -62551,7 +62498,7 @@ xt
 xt
 xt
 xt
-xt
+rq
 xt
 xt
 zl

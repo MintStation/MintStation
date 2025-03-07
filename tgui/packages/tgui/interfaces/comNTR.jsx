@@ -1,9 +1,7 @@
 import { sortBy } from 'common/collections';
-import { capitalize } from 'common/string';
 import { useState } from 'react';
-
-import { useBackend, useLocalState } from '../backend';
 import {
+  AnimatedNumber,
   Blink,
   Box,
   Button,
@@ -13,9 +11,11 @@ import {
   Modal,
   Section,
   TextArea,
-  AnimatedNumber,
-} from '../components';
-import { formatMoney } from '../format';
+} from 'tgui-core/components';
+import { formatMoney } from 'tgui-core/format';
+import { capitalize } from 'tgui-core/string';
+
+import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
 import { sanitizeText } from '../sanitize';
 import { StatusDisplayControls } from './common/StatusDisplayControls';
