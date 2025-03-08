@@ -837,7 +837,7 @@ const PunishmentActions = () => {
           width="100%"
           color="orange"
           title="Details"
-          disabled={!client_ckey}
+          // disabled={!client_ckey}
         >
           <LabeledList>
             <LabeledList.Item label="NOW" color="label">
