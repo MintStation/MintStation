@@ -833,30 +833,27 @@ const PunishmentActions = () => {
           </Flex>
         }
       >
-        <Collapsible
-          width="100%"
-          color="orange"
-          title="Details"
-          // disabled={!client_ckey}
-        >
-          <LabeledList>
-            <LabeledList.Item label="NOW" color="label">
-              {current_time}
-            </LabeledList.Item>
-            <LabeledList.Item label="Account made">
-              {data_account_join_date}
-            </LabeledList.Item>
-            <LabeledList.Item label="First joined server">
-              {data_player_join_date}
-            </LabeledList.Item>
-            <LabeledList.Item label="Byond version">
-              {data_byond_version}
-            </LabeledList.Item>
-            <LabeledList.Item label="Old names">
-              {data_old_names}
-            </LabeledList.Item>
-          </LabeledList>
-        </Collapsible>
+        {client_ckey && (
+          <Collapsible width="100%" color="orange" title="Details">
+            <LabeledList>
+              <LabeledList.Item label="NOW" color="label">
+                {current_time}
+              </LabeledList.Item>
+              <LabeledList.Item label="Account made">
+                {data_account_join_date}
+              </LabeledList.Item>
+              <LabeledList.Item label="First joined server">
+                {data_player_join_date}
+              </LabeledList.Item>
+              <LabeledList.Item label="Byond version">
+                {data_byond_version}
+              </LabeledList.Item>
+              <LabeledList.Item label="Old names">
+                {data_old_names}
+              </LabeledList.Item>
+            </LabeledList>
+          </Collapsible>
+        )}
       </Section>
     </Section>
   );
