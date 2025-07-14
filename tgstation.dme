@@ -7177,6 +7177,7 @@
 #include "modular_nova\modules\alt_vox\code\vox_procs.dm"
 #include "modular_nova\modules\alt_vox\code\vox_sounds_bms.dm"
 #include "modular_nova\modules\alt_vox\code\vox_sounds_hl1.dm"
+#include "modular_nova\modules\alt_vox\code\vox_sounds_over.dm"
 #include "modular_nova\modules\alternative_job_titles\code\alt_job_titles.dm"
 #include "modular_nova\modules\alternative_job_titles\code\job.dm"
 #include "modular_nova\modules\ammo_stacks\code\ammo_stack_base.dm"

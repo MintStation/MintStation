@@ -5,7 +5,7 @@
 	/// The currently selected VOX Announcer voice.
 	var/vox_type = VOX_BMS
 	/// The list of available VOX Announcer voices to choose from.
-	var/list/vox_voices = list(VOX_HL, VOX_NORMAL, VOX_BMS)
+	var/list/vox_voices = list(VOX_HL, VOX_NORMAL, VOX_BMS, VOX_OVER) // MINT EDIT
 	/// The VOX word(s) that were previously inputed.
 	var/vox_word_string
 
@@ -20,6 +20,10 @@
 			return GLOB.vox_sounds_bms
 		if(VOX_MIL)
 			return GLOB.vox_sounds_mil
+		// MINT ADDITION START
+		if(VOX_OVER)
+			return GLOB.vox_sounds_over
+		// MINT ADDITION END
 	return GLOB.vox_sounds
 
 /mob/living/silicon/ai/verb/switch_vox()
