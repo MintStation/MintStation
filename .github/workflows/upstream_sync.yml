@@ -18,7 +18,7 @@ jobs:
     steps:
       # Step 1: Check out our repository
       - name: Checkout target repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0  # Fetch all history for all branches
           token: ${{ secrets.MINT_TOKEN }}  # Use MINT_TOKEN for authentication
