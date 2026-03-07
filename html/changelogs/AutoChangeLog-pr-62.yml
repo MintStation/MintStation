@@ -1,0 +1,4 @@
+author: "ALOHADAWN"
+delete-after: True
+changes:
+  - bugfix: "Пофикшено не корректное отображение ролей центрального командования в crew manifest"
