@@ -16,11 +16,10 @@
 	department_for_prefs = /datum/job_department/captain
 
 	departments_list = list(
-		/datum/job_department/command,
 		/datum/job_department/central_command
 	)
 
-	outfit = /datum/outfit/centcom/naval/lieutenant
+	outfit = /datum/outfit/centcom/naval/lieutenant_centcom_officer
 
 	paycheck = PAYCHECK_COMMAND
 	paycheck_department = ACCOUNT_CMD
@@ -41,6 +40,12 @@
 
 	veteran_only = TRUE
 	job_flags = STATION_JOB_FLAGS | JOB_BOLD_SELECT_TEXT | JOB_CANNOT_OPEN_SLOTS
+
+/datum/id_trim/centcom/naval/centcom_officer
+	assignment = JOB_CCNT_OFFICER
+
+/datum/outfit/centcom/naval/lieutenant_centcom_officer
+	id_trim = /datum/id_trim/centcom/naval/centcom_officer
 /*
 /obj/effect/landmark/start/centcom_officer
 	name = "CentCom Officer"
