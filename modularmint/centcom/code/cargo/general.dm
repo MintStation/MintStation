@@ -141,7 +141,7 @@
 	cost = 5000
 	contains = list(/obj/item/circuitboard/machine/protolathe/department/security)
 
-/datum/supply_pack/centcom/limited/protolathe_security
+/datum/supply_pack/centcom/limited/circuit_imprinter
 	name = "Circuit Imprinter"
 	desc = "Circuit Imprinter circuitboard."
 	cost = 5000
