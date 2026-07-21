@@ -1,0 +1,4 @@
+author: "Arceniu"
+delete-after: True
+changes:
+  - bugfix: "circuit_imprinter no longer override security protolathe in centcom cargo console"
